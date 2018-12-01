@@ -2,14 +2,17 @@ let canvas = document.getElementById("canvas");
 let ctx = canvas.getContext("2d");
 
 let lastTime = 0
+
+let world = new World(lvl1);
+
 function render(timeStamp) {
   let dt = timeStamp - lastTime;
   lastTime = timeStamp
-  console.log(dt);
-  ctx.fillStyle = "#ff0000";
-  ctx.fillRect(20, 20, 100, 50);
 
-  testFunction();
+  ctx.fillStyle = "rgb(0, 0, 0)";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  world.render();
+
   window.requestAnimationFrame(render);
 }
 
