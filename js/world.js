@@ -2,13 +2,42 @@ const BLOCK_WIDTH = 32;
 
 class World {
   constructor(map) {
+    this.entities = [];
+    this.physics = new Physics(this);
+    this.parseMap(map)
+
+  }
+
+  parseMap(map) {
     let parsed = map.split('\n').map(row => row.split(''));
     this.width = parsed[0].length;
     this.height = parsed.length;
     this.map = parsed;
+
+    for (let i = 0; i < this.width; i++) {
+      for (let j = 0; j < this.height; j++) {
+        if (this.map[j][i] === '@') {
+          let player = new Player(i * BLOCK_WIDTH, j * BLOCK_WIDTH);
+          this.entities.push(player);
+          this.physics.addEntity(player);
+          this.map[j][i] = ' ';
+        }
+      }
+    }
+  }
+
+  update(dt) {
+    for (let idx in this.entities) {
+      this.entities[idx].update(dt);
+    }
+    this.physics.update(dt);
   }
 
   render() {
+    for (let idx in this.entities) {
+      this.entities[idx].render();
+    }
+
     for (let i = 0; i < this.width; i++) {
       for (let j = 0; j < this.height; j++) {
         ctx.save();
