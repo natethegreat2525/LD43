@@ -35,4 +35,5 @@ function keyboard(keyCode) {
 	return key;
 }
 
+// Add keys here
 let spaceKey = keyboard(32);
