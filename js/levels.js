@@ -4,11 +4,11 @@ let lvl1 = "                         \n" +
            "                         \n" +
            "                         \n" +
            "                         \n" +
-           "                         \n" +
-           "   ggg                   \n" +
-           "  gdddgg                 \n" +
-           " gddddddg       s        \n" +
-           "gddddddddgggggggggggggggg\n" +
+           "    @                    \n" +
+           "gggggg                   \n" +
+           "ddddddgg                 \n" +
+           "ddddddddg       s        \n" +
+           "dddddddddgggggggggggggggg\n" +
            "ddddddddddddddddddddddddd\n" +
            "ddddddddddddddddddddddddd\n" +
            "ddddddddddddddddddddddddd\n" +
