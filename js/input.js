@@ -37,9 +37,11 @@ function keyboard(keyCode) {
 
 // Add keys here
 let spaceKey = keyboard(32);
+let upKey = keyboard(38);
 
 let leftKey = keyboard(37);
 let rightKey = keyboard(39);
 
 let aKey = keyboard(65);
 let dKey = keyboard(68);
+let wKey = keyboard(87);
