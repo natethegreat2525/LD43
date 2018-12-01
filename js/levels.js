@@ -7,7 +7,7 @@ let lvl1 = "                         \n" +
            "                         \n" +
            "   ggg                   \n" +
            "  gdddgg                 \n" +
-           " gddddddg                \n" +
+           " gddddddg       s        \n" +
            "gddddddddgggggggggggggggg\n" +
            "ddddddddddddddddddddddddd\n" +
            "ddddddddddddddddddddddddd\n" +

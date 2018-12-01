@@ -20,6 +20,9 @@ class World {
           case 'd':
             drawDirt();
             break;
+          case 's':
+            drawSpikes();
+            break;
         }
         ctx.restore();
       }
@@ -36,4 +39,29 @@ function drawGround() {
 function drawDirt() {
   ctx.fillStyle = 'rgba(69, 35, 10, 1)';
   ctx.fillRect(0, 0, BLOCK_WIDTH, BLOCK_WIDTH)
+}
+
+function drawSpikes() {
+  ctx.fillStyle = 'rgb(200, 200, 200)';
+  sw = BLOCK_WIDTH / 6;
+  ctx.beginPath();
+  ctx.moveTo(sw, sw*2);
+  ctx.lineTo(0, BLOCK_WIDTH);
+  ctx.lineTo(sw*2, BLOCK_WIDTH);
+  ctx.closePath();
+  ctx.fill();
+
+  ctx.beginPath();
+  ctx.moveTo(sw*3, sw*2);
+  ctx.lineTo(sw*2, BLOCK_WIDTH);
+  ctx.lineTo(sw*4, BLOCK_WIDTH);
+  ctx.closePath();
+  ctx.fill();
+
+  ctx.beginPath();
+  ctx.moveTo(sw*5, sw*2);
+  ctx.lineTo(sw*4, BLOCK_WIDTH);
+  ctx.lineTo(sw*6, BLOCK_WIDTH);
+  ctx.closePath();
+  ctx.fill();
 }
