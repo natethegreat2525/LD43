@@ -5,7 +5,10 @@ let x = 0;
 let lastTime = 0
 
 let world = new World(lvl1);
+
 let player = new Player(320, 288);
+let phys = new Physics(world);
+
 let snow = new AllSnow(1000, canvas.width, canvas.height);
 
 function update(timeStamp) {
@@ -15,6 +18,7 @@ function update(timeStamp) {
   // Update world
   player.update();
   snow.update(dt);
+  phys.update(dt);
 
   // Render world
   ctx.fillStyle = "rgb(0, 0, 0)";
