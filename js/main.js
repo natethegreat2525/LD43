@@ -5,22 +5,26 @@ let x = 0;
 let lastTime = 0
 
 let world = new World(lvl1);
+let player = new Player(320, 288);
 let snow = new AllSnow(1000, canvas.width, canvas.height);
 
-function render(timeStamp) {
-  ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
+function update(timeStamp) {
   let dt = Math.min(timeStamp - lastTime, 33);
   lastTime = timeStamp
 
+  // Update world
+  player.update();
   snow.update(dt);
 
+  // Render world
   ctx.fillStyle = "rgb(0, 0, 0)";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   snow.render();
 
   world.render();
+  player.render();
 
-  window.requestAnimationFrame(render);
+  window.requestAnimationFrame(update);
 }
 
-window.requestAnimationFrame(render);
+window.requestAnimationFrame(update);
