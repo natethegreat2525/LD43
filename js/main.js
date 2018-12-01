@@ -8,6 +8,7 @@ let world = new World(lvl1);
 
 let player = new Player(320, 288);
 let phys = new Physics(world);
+phys.addEntity(player);
 
 let snow = new AllSnow(1000, canvas.width, canvas.height);
 
