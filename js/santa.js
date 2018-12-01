@@ -1,22 +1,17 @@
-const LEFT = 0;
-const RIGHT = 2;
-const FRONT = 1;
-const PLAYER_WIDTH = 20;
-const PLAYER_HEIGHT = 47;
 
-class Player {
-    constructor(x, y) {
+
+class Santa {
+    constructor(x, y, dir) {
         this.x = x;
         this.y = y;
         this.vx = 0;
         this.vy = 0;
-        this.w = PLAYER_WIDTH;
-        this.h = PLAYER_HEIGHT;
         this.fr = 0;
         this.dir = FRONT;
     }
 
     render() {
+    
         //Feet
         let lFoot = null;
         let rFoot = null;
@@ -140,26 +135,23 @@ class Player {
         ctx.fill(); //beard triangle
         return;
     }
-
+    
     update(dt) {
         if (leftKey.isDown || aKey.isDown) { 
             this.vx = -200;
             this.dir = LEFT;
-        } else if (rightKey.isDown || dKey.isDown) {
+        }
+        else if (rightKey.isDown || dKey.isDown) {
             this.vx = 200;
             this.dir = RIGHT;
         } else {
             this.vx *= .7;
-            if ((downKey.isDown || sKey.isDown) && this.grounded) {
-                this.dir = FRONT;
-            }
         }
 
         if ((upKey.isDown || wKey.isDown) && this.grounded) {
             this.vy = -300;
             this.dir = FRONT;
         }
-        
-        this.fr++;
+        this.fr = dt;
     }
 }
