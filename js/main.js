@@ -13,7 +13,7 @@ phys.addEntity(player);
 let snow = new AllSnow(1000, canvas.width, canvas.height);
 
 function update(timeStamp) {
-  let dt = Math.min(timeStamp - lastTime, 33);
+  let dt = (Math.min(timeStamp - lastTime, 33)/1000.0);
   lastTime = timeStamp
 
   // Update world

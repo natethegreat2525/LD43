@@ -13,16 +13,21 @@ class Player {
 
     render() {
         ctx.fillStyle = '#ff0000';
-        console.log(this.y, this.vy);
         ctx.fillRect(this.x, this.y, PLAYER_WIDTH, PLAYER_HEIGHT);
     }
 
     update() {
         if (leftKey.isDown || aKey.isDown) { 
-            this.vx = -2;
+            this.vx = -200;
         }
         else if (rightKey.isDown || dKey.isDown) {
-            this.vy = 2;
+            this.vx = 200;
+        } else {
+            this.vx *= .7;
+        }
+
+        if ((upKey.isDown || wKey.isDown) && this.grounded) {
+            this.vy = -300;
         }
     }
 }

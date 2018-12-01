@@ -16,8 +16,8 @@ class Flake {
   }
 
   update(dt) {
-    this.y += this.size * dt / 64;
-    this.sway += dt / 2000;
+    this.y += this.size * dt * 1000 / 64;
+    this.sway += dt / 2;
   }
 }
 

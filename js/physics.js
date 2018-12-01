@@ -1,5 +1,5 @@
 
-const GRAVITY = .001;
+const GRAVITY = 1000;
 class Physics {
     constructor(world) {
         this.world = world;
@@ -48,8 +48,10 @@ class Physics {
                                 ent.x += overlap[0];
                                 ent.y += overlap[1];
                                 if (overlap[1] < 0) {
-                                    ent.vy = Math.min(0, ent.vy);
-                                    ent.grounded = true;
+                                    if (ent.vy > 0) {
+                                        ent.grounded = true;
+                                        ent.vy = 0;
+                                    }
                                 }
                                 if (overlap[1] > 0) {
                                     ent.vy = Math.max(0, ent.vy);
@@ -63,13 +65,17 @@ class Physics {
                                 }
                             }
                         } else {
-                            ent.x += overlap[0];
-                            ent.y += overlap[1];
-                            ent.x += overlap[0];
-                            ent.y += overlap[1];
+                            if (Math.abs(overlap[0]) > .1) {
+                                ent.x += overlap[0] * .9;
+                            }
+                            if (Math.abs(overlap[1]) > .1) {
+                                ent.y += overlap[1] * .9;
+                            }
                             if (overlap[1] < 0) {
-                                ent.vy = Math.min(0, ent.vy);
-                                ent.grounded = true;
+                                if (ent.vy > 0) {
+                                    ent.grounded = true;
+                                    ent.vy = 0;
+                                }
                             }
                             if (overlap[1] > 0) {
                                 ent.vy = Math.max(0, ent.vy);
@@ -90,29 +96,26 @@ class Physics {
 }
 
 function getRectOverlap(x1, y1, w1, h1, x2, y2, w2, h2) {
-    let btwn = (pos, st, wid) => (pos >= st && pos <= st + wid);
-    let x1b = btwn(x1, x2, w2) || btwn(x1+w1, x2, w2);
-    let x2b = btwn(x2, x1, w1) || btwn(x2+w2, x1, w1);
-    let y1b = btwn(y1, y2, h2) || btwn(y1+h1, y2, h2);
-    let y2b = btwn(y2, y1, w1) || btwn(y2+h2, y1, h1);
-    if (!((x1b || x2b) && (y1b || y2b))) {
-        return null;
-    }
+    let mx1 = x1 + w1/2;
+    let my1 = y1 + h1/2;
 
-    let minOvlp = (a1, s1, a2, s2) => Math.min(a2 + s2 - a1, a1 + s1 - a2);
-    xovlp = minOvlp(x1, w1, x2, w2);
-    yovlp = minOvlp(y1, h1, y2, h2);
-    if (xovlp < yovlp) {
-        yovlp = 0;
+    let mx2 = x2 + w2/2;
+    let my2 = y2 + h2/2;
+
+    let dx = mx1 - mx2;
+    let dy = my1 - my2;
+    if (Math.abs(dx) - (w1 + w2) / 2 > Math.abs(dy) - (h1 + h2) / 2) {
+        if (dx > 0) {
+            dx -= (w1 + w2) / 2;
+        } else {
+            dx += (w1 + w2) / 2;
+        }
+        return [-dx, 0];
+    }
+    if (dy > 0) {
+        dy -= (h1 + h2) / 2;
     } else {
-        xovlp = 0;
+        dy += (h1 + h2) / 2;
     }
-    if (x1+w1/2 < x2+w2/2) {
-        xovlp = -xovlp;
-    }
-    if (y1+h1/2 < y2+h2/2) {
-        yovlp = -yovlp
-    }
-
-    return [xovlp, yovlp];
+    return [0, -dy];
 }
