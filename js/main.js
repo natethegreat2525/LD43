@@ -9,7 +9,7 @@ let snow = new AllSnow(1000, canvas.width, canvas.height);
 
 function render(timeStamp) {
   ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
-  let dt = timeStamp - lastTime;
+  let dt = Math.min(timeStamp - lastTime, 33);
   lastTime = timeStamp
 
   snow.update(dt);
