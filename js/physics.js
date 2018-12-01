@@ -44,9 +44,13 @@ class Physics {
                         }
 
                         if (ent.handleMapCollision) {
-                            if (ent.handleMapCollision(this.world.map[j][i], overlap[0], overlap[1]) === false) {
-                                ent.x += overlap[0];
-                                ent.y += overlap[1];
+                            if (ent.handleMapCollision(this.world.map[j][i], overlap[0], overlap[1]) !== false) {
+                                if (Math.abs(overlap[0]) > .1) {
+                                    ent.x += overlap[0] * .9;
+                                }
+                                if (Math.abs(overlap[1]) > .1) {
+                                    ent.y += overlap[1] * .9;
+                                }
                                 if (overlap[1] < 0) {
                                     if (ent.vy > 0) {
                                         ent.grounded = true;
@@ -56,7 +60,7 @@ class Physics {
                                 if (overlap[1] > 0) {
                                     ent.vy = Math.max(0, ent.vy);
                                 }
-
+    
                                 if (overlap[0] < 0) {
                                     ent.vx = Math.min(0, ent.vx);
                                 }
