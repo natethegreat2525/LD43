@@ -5,9 +5,7 @@ let x = 0;
 let lastTime = 0
 function render(timeStamp) {
   ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
-  if (spaceKey.isDown) {
-    x++;
-  }
+  if (spaceKey.isDown) x++;
   let dt = timeStamp - lastTime;
   lastTime = timeStamp
   console.log(dt);
