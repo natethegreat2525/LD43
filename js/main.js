@@ -6,18 +6,21 @@ let lastTime = 0
 
 let world = new World(lvl1);
 let player = new Player(320, 288);
+let snow = new AllSnow(1000, canvas.width, canvas.height);
 
 function update(timeStamp) {
-  ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
-  let dt = timeStamp - lastTime;
+  let dt = Math.min(timeStamp - lastTime, 33);
   lastTime = timeStamp
 
   // Update world
   player.update();
+  snow.update(dt);
 
   // Render world
   ctx.fillStyle = "rgb(0, 0, 0)";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
+  snow.render();
+
   world.render();
   player.render();
 
