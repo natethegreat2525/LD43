@@ -1,4 +1,4 @@
-const PLAYER_SIZE = 24;
+const PLAYER_SIZE = 32;
 
 class Player {
     constructor(x, y) {

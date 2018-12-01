@@ -5,7 +5,7 @@ let x = 0;
 let lastTime = 0
 
 let world = new World(lvl1);
-let player = new Player(320, 295);
+let player = new Player(320, 288);
 
 function update(timeStamp) {
   ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
