@@ -160,6 +160,6 @@ class Player {
             this.dir = FRONT;
         }
         
-        this.fr = dt;
+        this.fr++;
     }
 }
