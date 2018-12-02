@@ -15,7 +15,7 @@ class Player {
         this.atkFr = 0;
         this.fr = 0;
         this.dir = FRONT;
-        this.attack = true;
+        this.attack = false;
     }
 
     render() {
