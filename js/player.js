@@ -171,9 +171,7 @@ class Player {
     handleMapCollision(blockId, OverlapX, OverlapY) {
         switch (blockId) {
             case 's':
-                if (Math.abs(OverlapY) > 15) {
-                    window.dispatchEvent(resetWorld);
-                }
+                window.dispatchEvent(resetWorld);
                 return false;
             default:
                 return true;
