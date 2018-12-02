@@ -1,4 +1,7 @@
-let lvl1 = "                         \n" +
+let level = [];
+
+level[0] = "                         \n" +
+           "                         \n" +
            "                         \n" +
            "                         \n" +
            "                         \n" +
@@ -6,10 +9,165 @@ let lvl1 = "                         \n" +
            "                         \n" +
            "    @                    \n" +
            "gggggg                   \n" +
-           "ddddddgg               gg\n" +
-           "ddddddddg             gdd\n" +
+           "ddddddgg               k \n" +
+           "ddddddddg             ggg\n" +
            "dddddddddgggggsssgggggddd\n" +
            "ddddddddddddddgggdddddddd\n" +
+           "ddddddddddddddddddddddddd\n" +
+           "ddddddddddddddddddddddddd\n" +
+           "ddddddddddddddddddddddddd\n" +
+           "ddddddddddddddddddddddddd\n" +
+           "ddddddddddddddddddddddddd\n" +
+           "ddddddddddddddddddddddddd\n";
+
+level[1] = "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "            ggggg        \n" +
+           "     @    d dddddgg   k  \n" +
+           "ggggggggggggdddddddgggggg\n" +
+           "ddddddddddddddddddddddddd\n" +
+           "ddddddddddddddddddddddddd\n" +
+           "ddddddddddddddddddddddddd\n" +
+           "ddddddddddddddddddddddddd\n" +
+           "ddddddddddddddddddddddddd\n" +
+           "ddddddddddddddddddddddddd\n" +
+           "ddddddddddddddddddddddddd\n";
+
+level[2] = "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "              gggg       \n" +
+           "           dd ddddg      \n" +
+           " @     gggggggdddddg  k  \n" +
+           "gggggggdddddddddddddggggg\n" +
+           "ddddddddddddddddddddddddd\n" +
+           "ddddddddddddddddddddddddd\n" +
+           "ddddddddddddddddddddddddd\n" +
+           "ddddddddddddddddddddddddd\n" +
+           "ddddddddddddddddddddddddd\n" +
+           "ddddddddddddddddddddddddd\n" +
+           "ddddddddddddddddddddddddd\n";
+
+level[3] = "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "    @       d         k  \n" +
+           "gggggggggggsssssggggggggg\n" +
+           "dddddddddddgggggddddddddd\n" +
+           "ddddddddddddddddddddddddd\n" +
+           "ddddddddddddddddddddddddd\n" +
+           "ddddddddddddddddddddddddd\n" +
+           "ddddddddddddddddddddddddd\n" +
+           "ddddddddddddddddddddddddd\n" +
+           "ddddddddddddddddddddddddd\n";
+
+level[4] = "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "ddddddddddddddddddddddddd\n" +
+           "ddddddddddddddddddddddddd\n" +
+           "ddddddddddddddddddddddddd\n" +
+           "ddddddddddddddddddddddddd\n" +
+           "ddddddddddddddddddddddddd\n" +
+           "ddddddddddddddddddddddddd\n" +
+           "ddddddddddddddddddddddddd\n" +
+           "ddddddddddddddddddddddddd\n";
+level[5] = "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "ddddddddddddddddddddddddd\n" +
+           "ddddddddddddddddddddddddd\n" +
+           "ddddddddddddddddddddddddd\n" +
+           "ddddddddddddddddddddddddd\n" +
+           "ddddddddddddddddddddddddd\n" +
+           "ddddddddddddddddddddddddd\n" +
+           "ddddddddddddddddddddddddd\n" +
+           "ddddddddddddddddddddddddd\n";
+level[6] = "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "ddddddddddddddddddddddddd\n" +
+           "ddddddddddddddddddddddddd\n" +
+           "ddddddddddddddddddddddddd\n" +
+           "ddddddddddddddddddddddddd\n" +
+           "ddddddddddddddddddddddddd\n" +
+           "ddddddddddddddddddddddddd\n" +
+           "ddddddddddddddddddddddddd\n" +
+           "ddddddddddddddddddddddddd\n";
+level[7] = "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "ddddddddddddddddddddddddd\n" +
+           "ddddddddddddddddddddddddd\n" +
+           "ddddddddddddddddddddddddd\n" +
+           "ddddddddddddddddddddddddd\n" +
+           "ddddddddddddddddddddddddd\n" +
+           "ddddddddddddddddddddddddd\n" +
+           "ddddddddddddddddddddddddd\n" +
+           "ddddddddddddddddddddddddd\n";
+level[8] = "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "                         \n" +
+           "ddddddddddddddddddddddddd\n" +
            "ddddddddddddddddddddddddd\n" +
            "ddddddddddddddddddddddddd\n" +
            "ddddddddddddddddddddddddd\n" +

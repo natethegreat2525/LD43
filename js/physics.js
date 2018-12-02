@@ -46,7 +46,7 @@ class Physics {
                         }
 
                         if (ent.handleMapCollision) {
-                            if (ent.handleMapCollision(this.world.map[j][i], overlap[0], overlap[1]) === true) {
+                            if (ent.handleMapCollision(this.world.map[j][i], overlap[0], overlap[1], i, j) === true) {
                                 if (Math.abs(overlap[0]) > .1) {
                                     ent.x += overlap[0] * .9;
                                 }
