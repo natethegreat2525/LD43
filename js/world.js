@@ -70,7 +70,6 @@ class World {
 
 function drawKid() {
     //Feet
-    console.log('hi');
     let fcxl = 2;
     let fcxr = 7;
     let fcy = 29;

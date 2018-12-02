@@ -103,8 +103,7 @@ class Player {
         }
 
         if (this.dir == RIGHT) {
-                //Eyes
-
+            //Eyes
             ctx.fillStyle = "#000000";
             ctx.fillRect(this.x+13, this.y+11, 3, 3); //eye
 
@@ -117,8 +116,7 @@ class Player {
         }
 
         if (this.dir == FRONT) {
-                //Eyes
-
+            //Eyes
             ctx.fillStyle = "#000000";
             ctx.fillRect(this.x+5, this.y+12, 3, 3); //left eye
             ctx.fillRect(this.x+13, this.y+12, 3, 3); //right eye
@@ -138,6 +136,13 @@ class Player {
 
         ctx.fillStyle = "#E2E2E2";
         ctx.fill(); //beard triangle
+        
+        //Toy Sack
+        
+        if 
+        
+        
+        
         return;
     }
 
