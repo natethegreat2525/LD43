@@ -17,7 +17,7 @@ function update(timeStamp) {
   world.update(dt);
 
   // Render world
-  ctx.fillStyle = "rgb(0, 0, 0)";
+  ctx.fillStyle = "#16024F";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   snow.render();
 

@@ -158,7 +158,9 @@ class Player {
             if ((downKey.isDown || sKey.isDown) && this.grounded) {
                 this.dir = FRONT;
             }
-            this.fr = 0;
+            if (!leftKey.isDown && !rightKey.isDown) {
+                this.fr = 0;
+            }
         }
 
         if ((upKey.isPressed || wKey.isPressed) && this.grounded) {
