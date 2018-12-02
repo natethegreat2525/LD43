@@ -9,8 +9,8 @@ level[0] = "                         \n" +
            "                         \n" +
            "    @                    \n" +
            "gggggg                   \n" +
-           "ddddddgg               k \n" +
-           "ddddddddg             ggg\n" +
+           "ddddddgg           e   k \n" +
+           "ddddddddg  e          ggg\n" +
            "dddddddddgggggsssgggggddd\n" +
            "ddddddddddddddgggdddddddd\n" +
            "ddddddddddddddddddddddddd\n" +
