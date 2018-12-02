@@ -8,6 +8,13 @@ class World {
 
   }
 
+  getValue(x, y) {
+    if (x < 0 || y < 0 || x >= this.width || y >= this.height) {
+      return ' ';
+    }
+    return this.map[y][x];
+  }
+
   parseMap(map) {
     let parsed = map.split('\n').map(row => row.split(''));
     this.width = parsed[0].length;

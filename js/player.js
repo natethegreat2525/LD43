@@ -136,14 +136,14 @@ class Player {
 
         ctx.fillStyle = "#E2E2E2";
         ctx.fill(); //beard triangle
-        
+
         //Toy Sack
 
         return;
     }
 
     update(dt) {
-        if (leftKey.isDown || aKey.isDown) { 
+        if (leftKey.isDown || aKey.isDown) {
             this.vx -= 20;
             this.dir = LEFT;
             this.fr++;
@@ -162,7 +162,7 @@ class Player {
         }
         this.vx = Math.max(-200, Math.min(200, this.vx));
 
-        if ((upKey.isPressed || wKey.isPressed) && this.grounded) {
+        if ((upKey.isDown || wKey.isDown) && this.grounded) {
             this.vy = -300;
             this.dir = FRONT;
         }
@@ -173,7 +173,7 @@ class Player {
             this.grounded = true;
         }
     }
-  
+
     // Place all trigger cases before case for ground (g)
     handleMapCollision(blockId, OverlapX, OverlapY, i, j) {
         switch (blockId) {
