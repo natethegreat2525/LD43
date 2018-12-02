@@ -3,11 +3,21 @@ function keyboard(keyCode) {
 	key.code = keyCode;
 	key.isDown = false;
 	key.isUp = true;
-	key.press = undefined;
-	key.release = undefined;
+	key.isPressed = false;
+	key.isReleased = false;
+
+	key.press = function() {
+		key.isPressed = true;
+	}
+	key.release = function() {
+		key.isReleased = true;
+	}
+	
 	//The `downHandler`
 	key.downHandler = event => {
 		if (event.keyCode === key.code) {
+			key.isPressed = false;
+			key.isReleased = false;
 			if (key.isUp && key.press) key.press();
 			key.isDown = true;
 			key.isUp = false;
@@ -18,6 +28,8 @@ function keyboard(keyCode) {
 	//The `upHandler`
 	key.upHandler = event => {
 		if (event.keyCode === key.code) {
+			key.isPressed = false;
+			key.isReleased = false;
 			if (key.isDown && key.release) key.release();
 			key.isDown = false;
 			key.isUp = true;

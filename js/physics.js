@@ -17,7 +17,9 @@ class Physics {
 
             ent.x += ent.vx * dt;
             ent.y += ent.vy * dt;
-            ent.vy += GRAVITY * dt;
+            if (!ent.grounded) {
+                ent.vy += GRAVITY * dt;
+            }
         }
         for (let idx in this.entities) {
             let ent = this.entities[idx];
@@ -44,7 +46,7 @@ class Physics {
                         }
 
                         if (ent.handleMapCollision) {
-                            if (ent.handleMapCollision(this.world.map[j][i], overlap[0], overlap[1]) !== false) {
+                            if (ent.handleMapCollision(this.world.map[j][i], overlap[0], overlap[1]) === true) {
                                 if (Math.abs(overlap[0]) > .1) {
                                     ent.x += overlap[0] * .9;
                                 }

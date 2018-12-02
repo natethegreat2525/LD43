@@ -9,6 +9,10 @@ class Player {
         this.vy = 0;
         this.w = PLAYER_WIDTH;
         this.h = PLAYER_HEIGHT;
+        this.hitSpikes = 0;
+        this.enteredTrigger = false;
+        this.inTrigger = false;
+        this.exitedTrigger = true;
     }
 
     render() {
@@ -17,17 +21,32 @@ class Player {
     }
 
     update() {
-        if (leftKey.isDown || aKey.isDown) { 
-            this.vx = -200;
+        if (this.vx > -200 && leftKey.isDown || aKey.isDown) { 
+            if (this.vx > 0) this.vs = 0;
+            this.vx -= 20;
         }
-        else if (rightKey.isDown || dKey.isDown) {
-            this.vx = 200;
+        else if (this.vx < 200 && rightKey.isDown || dKey.isDown) {
+            if (this.vx < 0) this.vs = 0;
+            this.vx += 20;
         } else {
             this.vx *= .7;
         }
 
-        if ((upKey.isDown || wKey.isDown) && this.grounded) {
+        if ((upKey.isPressed || wKey.isPressed) && this.grounded) {
             this.vy = -300;
+        }
+    }
+
+    // Place all trigger cases before case for ground (g)
+    handleMapCollision(blockId, OverlapX, OverlapY) {
+        this.enteredCollison = false;
+        switch (blockId) {
+            case 's':
+                this.vx = -400;
+                this.vy = -200;
+                return false;
+            default:
+                return true;
         }
     }
 }
