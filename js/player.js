@@ -169,11 +169,11 @@ class Player {
   
     // Place all trigger cases before case for ground (g)
     handleMapCollision(blockId, OverlapX, OverlapY) {
-        this.enteredCollison = false;
         switch (blockId) {
             case 's':
-                this.vx = -400;
-                this.vy = -200;
+                if (Math.abs(OverlapY) > 15) {
+                    window.dispatchEvent(resetWorld);
+                }
                 return false;
             default:
                 return true;
