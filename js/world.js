@@ -106,6 +106,7 @@ function drawDirt() {
 
 function drawSpikes() {
   ctx.fillStyle = 'rgb(200, 200, 200)';
+  ctx.strokeStyle = 'rgb(100, 100, 100)'
   sw = BLOCK_WIDTH / 6;
   ctx.beginPath();
   ctx.moveTo(sw, sw*2);
@@ -113,6 +114,7 @@ function drawSpikes() {
   ctx.lineTo(sw*2, BLOCK_WIDTH);
   ctx.closePath();
   ctx.fill();
+  ctx.stroke();
 
   ctx.beginPath();
   ctx.moveTo(sw*3, sw*2);
@@ -120,6 +122,7 @@ function drawSpikes() {
   ctx.lineTo(sw*4, BLOCK_WIDTH);
   ctx.closePath();
   ctx.fill();
+  ctx.stroke();
 
   ctx.beginPath();
   ctx.moveTo(sw*5, sw*2);
@@ -127,4 +130,5 @@ function drawSpikes() {
   ctx.lineTo(sw*6, BLOCK_WIDTH);
   ctx.closePath();
   ctx.fill();
+  ctx.stroke();
 }
