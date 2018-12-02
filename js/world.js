@@ -34,12 +34,8 @@ class World {
   }
 
   render() {
-    for (let idx in this.entities) {
-      this.entities[idx].render();
-    }
-
-    for (let i = 0; i < this.width; i++) {
-      for (let j = 0; j < this.height; j++) {
+    for (let i = this.width - 1; i >= 0; i--) {
+      for (let j = this.height - 1; j >= 0; j--) {
         ctx.save();
         ctx.translate(BLOCK_WIDTH * i, BLOCK_WIDTH * j);
         switch (this.map[j][i]) {
@@ -56,19 +52,57 @@ class World {
         ctx.restore();
       }
     }
+    for (let idx in this.entities) {
+      this.entities[idx].render();
+    }
   }
 
 }
 
 function drawGround() {
-  ctx.fillStyle = 'rgba(240, 240, 240, 1)';
-  ctx.fillRect(0, 0, BLOCK_WIDTH, BLOCK_WIDTH)
+  let sp = 5;
+  ctx.fillStyle = 'rgba(220, 220, 240, 1)';
+  ctx.fillRect(sp, sp, BLOCK_WIDTH, BLOCK_WIDTH);
+  ctx.fillStyle = 'rgba(200, 200, 220, 1)';
+  ctx.beginPath();
+  ctx.moveTo(-sp, -sp);
+  ctx.lineTo(sp, sp);
+  ctx.lineTo(sp, sp + BLOCK_WIDTH);
+  ctx.lineTo(-sp, -sp + BLOCK_WIDTH);
+  ctx.closePath();
+  ctx.fill();
+  ctx.fillStyle = 'rgba(255, 255, 255, 1)';
+  ctx.beginPath();
+  ctx.moveTo(-sp-1, -sp);
+  ctx.lineTo(BLOCK_WIDTH - sp, -sp);
+  ctx.lineTo(BLOCK_WIDTH + sp, sp);
+  ctx.lineTo(sp-1, sp);
+  ctx.closePath();
+  ctx.fill();
 }
 
 function drawDirt() {
+  let sp = 5;
+  ctx.fillStyle = 'rgba(59, 25, 8, 1)';
+  ctx.fillRect(sp, sp, BLOCK_WIDTH, BLOCK_WIDTH);
+  ctx.fillStyle = 'rgba(35, 15, 5, 1)';
+  ctx.beginPath();
+  ctx.moveTo(-sp, -sp);
+  ctx.lineTo(sp, sp);
+  ctx.lineTo(sp, sp + BLOCK_WIDTH);
+  ctx.lineTo(-sp, -sp + BLOCK_WIDTH);
+  ctx.closePath();
+  ctx.fill();
   ctx.fillStyle = 'rgba(69, 35, 10, 1)';
-  ctx.fillRect(0, 0, BLOCK_WIDTH, BLOCK_WIDTH)
+  ctx.beginPath();
+  ctx.moveTo(-sp-1, -sp);
+  ctx.lineTo(BLOCK_WIDTH - sp, -sp);
+  ctx.lineTo(BLOCK_WIDTH + sp, sp);
+  ctx.lineTo(sp-1, sp);
+  ctx.closePath();
+  ctx.fill();
 }
+
 
 function drawSpikes() {
   ctx.fillStyle = 'rgb(200, 200, 200)';
