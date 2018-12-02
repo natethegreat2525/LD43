@@ -1,4 +1,4 @@
-function drawPlayer(x, y, vx, vy, w, h, arkFr, fr, dir, attack) {
+function drawPlayer(x, y, vx, vy, w, h, atkFr, fr, dir, attack) {
     //Feet
     let lFoot = null;
     let rFoot = null;
@@ -122,7 +122,6 @@ function drawPlayer(x, y, vx, vy, w, h, arkFr, fr, dir, attack) {
     //Toy Sack
     if (dir == RIGHT) {
         if (attack) {
-            atkFr++;
             let ox = (Math.sin((atkFr + 29) / 5) * 12);
             ctx.fillStyle = "#BD974B";
             ctx.fillRect(x+ox+12, y+22, 8, 8);
@@ -139,11 +138,6 @@ function drawPlayer(x, y, vx, vy, w, h, arkFr, fr, dir, attack) {
         
             ctx.fillStyle = '#01F738';
             ctx.fillRect(x+ox+10, y+25, 2, 2);
-            
-            if (atkFr >= 29) {
-                attack = false;
-                atkFr = 0;
-            }
         } else {
             let ox = Math.sin((fr + 4) / 5) * 6;
     
@@ -165,7 +159,6 @@ function drawPlayer(x, y, vx, vy, w, h, arkFr, fr, dir, attack) {
         }
     } else if (dir == LEFT) {
         if (attack) {
-            atkFr++;
             let ox = (Math.sin((atkFr + 40) / 5) * 12);
             ctx.fillStyle = "#BD974B";
             ctx.fillRect(x+ox-2, y+22, 8, 8);
@@ -182,11 +175,6 @@ function drawPlayer(x, y, vx, vy, w, h, arkFr, fr, dir, attack) {
         
             ctx.fillStyle = '#01F738';
             ctx.fillRect(x+ox+6, y+25, 2, 2);
-            
-            if (atkFr >= 29) {
-                attack = false;
-                atkFr = 0;
-            }
         } else {
             ctx.fillStyle = "#BD974B";
             ctx.fillRect(x+20, y+30, 8, 8);
@@ -206,7 +194,6 @@ function drawPlayer(x, y, vx, vy, w, h, arkFr, fr, dir, attack) {
         }
     } else {
         if (attack) {
-            atkFr++;
             let ox = (Math.sin((atkFr + 29) / 5) * 12);
             ctx.fillStyle = "#BD974B";
             ctx.fillRect(x+ox+12, y+22, 8, 8);
@@ -223,11 +210,6 @@ function drawPlayer(x, y, vx, vy, w, h, arkFr, fr, dir, attack) {
         
             ctx.fillStyle = '#01F738';
             ctx.fillRect(x+ox+10, y+25, 2, 2);
-            
-            if (atkFr >= 29) {
-                attack = false;
-                atkFr = 0;
-            }
         } else {
             ctx.fillStyle = "#BD974B";
             ctx.fillRect(x-4, y+30, 4, 8);

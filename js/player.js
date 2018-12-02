@@ -19,6 +19,31 @@ class Player {
     }
 
     render() {
+        if (this.dir == RIGHT) {
+            if (this.attack) {
+                this.atkFr++;
+                if (this.atkFr >= 29) {
+                    this.attack = false;
+                    this.atkFr = 0;
+                }
+            }
+        } else if (this.dir == LEFT) {
+            if (this.attack) {
+                this.atkFr++;
+                if (this.atkFr >= 29) {
+                    this.attack = false;
+                    this.atkFr = 0;
+                }
+            }
+        } else {
+            if (this.attack) {
+                this.atkFr++;
+                if (this.atkFr >= 29) {
+                    this.attack = false;
+                    this.atkFr = 0;
+                }
+            }
+        }
         drawPlayer(this.x, this.y, this.vx, this.vy, this.w, this.h, this.atkFr, this.fr, this.dir, this.attack);
     }
 
