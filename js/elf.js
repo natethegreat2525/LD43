@@ -27,6 +27,7 @@ class Elf {
         }
         this.fr = 0;
         this.dir = FRONT;
+        this.alive = true;
     }
     
     render(x, y, dir, fr) {
@@ -152,6 +153,57 @@ class Elf {
 	
 	update(dt) {
         this.dir = FRONT;
+
+        if (this.alive) {
+            if (this.moveLeft) {
+                this.vx = -200;
+                this.dir = LEFT;
+            } else if (this.moveRight) {
+                this.vx = 200;
+                this.dir = RIGHT;
+            } else {
+                this.vx = this.vx * .7;
+            }
+        } else {
+            this.vx = this.vx * .7;
+        }
+
+        this.moveLeft = false;
+        this.moveRight = false;
         this.fr++;
+    }
+
+    handleEntityCollision(ent) {
+        if (ent.y + ent.h < this.y + 5) {
+            let mx = Math.floor((ent.x + ent.w/2) / BLOCK_WIDTH);
+            let my = Math.floor((this.y + this.h/2) / BLOCK_WIDTH);
+
+            let rightDist = 5;
+            let leftDist = 5;
+            for (let i = 0; i < 3; i++) {
+                if (world.map[my][mx+i] !== ' ') {
+                    rightDist = i;
+                    break;
+                }
+            }
+            for (let i = 0; i < 3; i++) {
+                if (world.map[my][mx-i] !== ' ') {
+                    leftDist = i;
+                    break;
+                }
+            }
+            //player trying to jump on top
+            if (leftDist === rightDist) {
+                if (ent.x < this.x) {
+                    this.moveRight = true;
+                } else {
+                    this.moveLeft = true;
+                }
+            } else if (leftDist > rightDist) {
+                this.moveLeft = true;
+            } else {
+                this.moveRight = true;
+            }
+        }
     }
 }

@@ -138,11 +138,7 @@ class Player {
         ctx.fill(); //beard triangle
         
         //Toy Sack
-        
-        if 
-        
-        
-        
+
         return;
     }
 
@@ -169,6 +165,12 @@ class Player {
         if ((upKey.isPressed || wKey.isPressed) && this.grounded) {
             this.vy = -300;
             this.dir = FRONT;
+        }
+    }
+
+    handleEntityCollision(ent, ox, oy) {
+        if (!ent.alive && oy < 0) {
+            this.grounded = true;
         }
     }
   

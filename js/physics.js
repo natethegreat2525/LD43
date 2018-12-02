@@ -20,6 +20,7 @@ class Physics {
             if (!ent.grounded) {
                 ent.vy += GRAVITY * dt;
             }
+            ent.grounded = false;
         }
 
         for (let i = 0; i < this.entities.length; i++) {
@@ -35,12 +36,12 @@ class Physics {
 
                 let dontHandle = false;
                 if (e1.handleEntityCollision) {
-                    if (e1.handleEntityCollision(e2) === false) {
+                    if (e1.handleEntityCollision(e2, overlap[0], overlap[1]) === false) {
                         dontHandle = true;
                     }
                 }
                 if (e2.handleEntityCollision) {
-                    if (e2.handleEntityCollision(e1) === false) {
+                    if (e2.handleEntityCollision(e1, -overlap[0], -overlap[1]) === false) {
                         dontHandle = true;
                     }
                 }
@@ -79,10 +80,7 @@ class Physics {
             }
         }
         for (let idx in this.entities) {
-            let ent = this.entities[idx];
-
-            ent.grounded = false;
-            
+            let ent = this.entities[idx];            
             let lmx = Math.floor(ent.x / BLOCK_WIDTH);
             let lmy = Math.floor(ent.y / BLOCK_WIDTH);
 
