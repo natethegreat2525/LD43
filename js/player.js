@@ -142,14 +142,11 @@ class Player {
     }
 
     update(dt) {
-        if (this.vx > -200 && leftKey.isDown || aKey.isDown) { 
-            if (this.vx > 0) this.vs = 0;
+        if (leftKey.isDown || aKey.isDown) { 
             this.vx -= 20;
             this.dir = LEFT;
             this.fr++;
-        }
-        else if (this.vx < 200 && rightKey.isDown || dKey.isDown) {
-            if (this.vx < 0) this.vs = 0;
+        } else if (rightKey.isDown || dKey.isDown) {
             this.vx += 20;
             this.dir = RIGHT;
             this.fr++;
@@ -162,6 +159,7 @@ class Player {
                 this.fr = 0;
             }
         }
+        this.vx = Math.max(-200, Math.min(200, this.vx));
 
         if ((upKey.isPressed || wKey.isPressed) && this.grounded) {
             this.vy = -300;
