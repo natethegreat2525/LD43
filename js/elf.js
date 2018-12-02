@@ -10,8 +10,8 @@ class Elf {
         if (!h) {
             this.h = ELF_HEIGHT;
         } else {
-            if (h < 8) {
-                this.h = 8;
+            if (h < 40) {
+                this.h = 40;
             } else {
                 this.h = h;
             }
@@ -19,7 +19,11 @@ class Elf {
         if (!w) {
             this.w = ELF_WIDTH;
         } else {
-            this.w = w;
+            if (w < 8) {
+                this.w = 8;
+            } else {
+                this.w = w;    
+            }
         }
         this.fr = 0;
         this.dir = FRONT;
@@ -34,7 +38,7 @@ class Elf {
         //Left or Right
         if (this.dir == LEFT || this.dir == RIGHT) {
             let fcx = this.x+(this.w/2);
-            let fcy = this.y+38;
+            let fcy = this.y+this.h-40+38;
             let ox = Math.sin((this.fr + 4) / 5) * 6;
             ctx.fillStyle = "#000000";
             ctx.fillRect(fcx + ox, fcy, 3, 3);
@@ -42,7 +46,7 @@ class Elf {
         } else { //Forward
             let fcxl = this.x+(this.w/2 - this.w/6)-2;
             let fcxr = this.x+(this.w/2 + this.w/6)-2;
-            let fcy = this.y+37;
+            let fcy = this.y+this.h-40+37;
             ctx.fillStyle = "#000000";
             ctx.fillRect(fcxl, fcy, 4, 4);
             ctx.fillRect(fcxr, fcy, 4, 4);
@@ -50,26 +54,26 @@ class Elf {
     
         //Body
         ctx.fillStyle = "#137703";
-        ctx.fillRect(this.x, this.y+19, this.w, 16); //outline
+        ctx.fillRect(this.x, this.y+19, this.w, this.h-40+16); //outline
         ctx.fillStyle = "#02A42C";
-        ctx.fillRect(this.x+1, this.y+20, this.w-2, 14); //body
+        ctx.fillRect(this.x+1, this.y+20, this.w-2, this.h-40+14); //body
     
         //Vertical sash
         ctx.fillStyle = "#ff0000";
         if (this.dir == LEFT) {
-            ctx.fillRect(this.x+((this.w-2)/4), this.y+19, 4, 16);
+            ctx.fillRect(this.x+((this.w-2)/4), this.y+19, 4, this.h-40+16);
         }
     
         if (this.dir == RIGHT) {
-            ctx.fillRect(this.x+((this.w-2)*3/4), this.y+19, 4, 16);
+            ctx.fillRect(this.x+((this.w-2)*3/4), this.y+19, 4, this.h-40+16);
         }
     
         if (this.dir == FRONT) {
-            ctx.fillRect(this.x+((this.w-2)/2), this.y+19, 4, 16);
+            ctx.fillRect(this.x+((this.w-2)/2), this.y+19, 4, this.h-40+16);
         }
     
         ctx.fillStyle = "#ff0000";
-        ctx.fillRect(this.x+0, this.y+33, this.w, 3);  //horizontal sash
+        ctx.fillRect(this.x+0, this.y+this.h-40+33, this.w, 3);  //horizontal sash
     
         //Face
         ctx.fillStyle = "#FEE3B7";
@@ -147,7 +151,7 @@ class Elf {
 	}
 	
 	update(dt) {
-        this.dir = RIGHT;
+        this.dir = FRONT;
         this.fr++;
     }
 }
