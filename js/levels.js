@@ -6,10 +6,10 @@ let lvl1 = "                         \n" +
            "                         \n" +
            "    @                    \n" +
            "gggggg                   \n" +
-           "ddddddgg                 \n" +
-           "ddddddddg       s        \n" +
-           "dddddddddgggggggggggggggg\n" +
-           "ddddddddddddddddddddddddd\n" +
+           "ddddddgg               gg\n" +
+           "ddddddddg             gdd\n" +
+           "dddddddddgggggsssgggggddd\n" +
+           "ddddddddddddddgggdddddddd\n" +
            "ddddddddddddddddddddddddd\n" +
            "ddddddddddddddddddddddddd\n" +
            "ddddddddddddddddddddddddd\n" +
