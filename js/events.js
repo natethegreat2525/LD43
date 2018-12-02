@@ -1,2 +1,3 @@
 // Holds global events for other scripts to trigger
-var resetWorld = new Event('resetWorld');
+var resetWorldEvent = new Event('resetWorld');
+var nextLevelEvent = new Event('nextLevel');

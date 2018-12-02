@@ -4,7 +4,7 @@ let x = 0;
 
 let lastTime = 0
 
-let world = new World(lvl1);
+let world = new World(level[0]);
 
 let snow = new AllSnow(1000, canvas.width, canvas.height);
 
@@ -25,12 +25,5 @@ function update(timeStamp) {
 
   window.requestAnimationFrame(update);
 }
-
-reset = event => {
-  world = new World(lvl1);
-  event.preventDefault();
-}
-
-window.addEventListener("resetWorld", reset, false);
 
 window.requestAnimationFrame(update);
