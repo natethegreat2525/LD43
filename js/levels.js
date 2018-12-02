@@ -20,7 +20,7 @@ level[0] = "                         \n" +
            "ddddddddddddddddddddddddd\n" +
            "ddddddddddddddddddddddddd\n";
 
-level[1] = "                         \n" +
+level[0] = "                         \n" +
            "                         \n" +
            "                         \n" +
            "                         \n" +
@@ -30,7 +30,7 @@ level[1] = "                         \n" +
            "                         \n" +
            "                         \n" +
            "            ggggg        \n" +
-           "     @    d dddddgg   k  \n" +
+           "     @    e dddddgg   k  \n" +
            "ggggggggggggdddddddgggggg\n" +
            "ddddddddddddddddddddddddd\n" +
            "ddddddddddddddddddddddddd\n" +
