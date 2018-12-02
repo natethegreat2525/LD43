@@ -12,8 +12,10 @@ class Player {
         this.vy = 0;
         this.w = PLAYER_WIDTH;
         this.h = PLAYER_HEIGHT;
+        this.atkFr = 0;
         this.fr = 0;
         this.dir = FRONT;
+        this.attack = true;
     }
 
     render() {
@@ -138,6 +140,129 @@ class Player {
         ctx.fill(); //beard triangle
 
         //Toy Sack
+        if (this.dir == RIGHT) {
+            if (this.attack) {
+                this.atkFr++;
+                let ox = (Math.sin((this.atkFr + 29) / 5) * 12);
+                ctx.fillStyle = "#BD974B";
+                ctx.fillRect(this.x+ox+12, this.y+22, 8, 8);
+        
+                ctx.beginPath();
+                ctx.moveTo(this.x+ox+4, this.y+22);
+                ctx.lineTo(this.x+ox+12, this.y+22);
+                ctx.lineTo(this.x+ox+12, this.y+30);
+                ctx.closePath(); 
+                ctx.fill();
+            
+                ctx.fillStyle = '#F3F701';
+                ctx.fillRect(this.x+ox+8, this.y+23, 2, 2);
+            
+                ctx.fillStyle = '#01F738';
+                ctx.fillRect(this.x+ox+10, this.y+25, 2, 2);
+                
+                if (this.atkFr >= 29) {
+                    this.attack = false;
+                    this.atkFr = 0;
+                }
+            } else {
+                let ox = Math.sin((this.fr + 4) / 5) * 6;
+        
+                ctx.fillStyle = "#BD974B";
+                ctx.fillRect(this.x-8, this.y+30, 8, 8);
+        
+                ctx.beginPath();
+                ctx.moveTo(this.x-8, this.y+30);
+                ctx.lineTo(this.x, this.y+22);
+                ctx.lineTo(this.x, this.y+30);
+                ctx.closePath(); 
+                ctx.fill();
+            
+                ctx.fillStyle = '#F3F701';
+                ctx.fillRect(this.x-3, this.y+25, 2, 2);
+            
+                ctx.fillStyle = '#01F738';
+                ctx.fillRect(this.x-5, this.y+27, 2, 2);
+            }
+        } else if (this.dir == LEFT) {
+            if (this.attack) {
+                this.atkFr++;
+                let ox = (Math.sin((this.atkFr + 40) / 5) * 12);
+                ctx.fillStyle = "#BD974B";
+                ctx.fillRect(this.x+ox-2, this.y+22, 8, 8);
+        
+                ctx.beginPath();
+                ctx.moveTo(this.x+ox+14, this.y+22);
+                ctx.lineTo(this.x+ox+6, this.y+22);
+                ctx.lineTo(this.x+ox+6, this.y+30);
+                ctx.closePath(); 
+                ctx.fill();
+            
+                ctx.fillStyle = '#F3F701';
+                ctx.fillRect(this.x+ox+8, this.y+23, 2, 2);
+            
+                ctx.fillStyle = '#01F738';
+                ctx.fillRect(this.x+ox+6, this.y+25, 2, 2);
+                
+                if (this.atkFr >= 29) {
+                    this.attack = false;
+                    this.atkFr = 0;
+                }
+            } else {
+                ctx.fillStyle = "#BD974B";
+                ctx.fillRect(this.x+20, this.y+30, 8, 8);
+        
+                ctx.beginPath();
+                ctx.moveTo(this.x+29, this.y+30);
+                ctx.lineTo(this.x+20, this.y+22);
+                ctx.lineTo(this.x+20, this.y+30);
+                ctx.closePath(); 
+                ctx.fill();
+            
+                ctx.fillStyle = '#F3F701';
+                ctx.fillRect(this.x+21, this.y+25, 2, 2);
+            
+                ctx.fillStyle = '#01F738';
+                ctx.fillRect(this.x+23, this.y+27, 2, 2);
+            }
+        } else {
+            if (this.attack) {
+                this.atkFr++;
+                let ox = (Math.sin((this.atkFr + 29) / 5) * 12);
+                ctx.fillStyle = "#BD974B";
+                ctx.fillRect(this.x+ox+12, this.y+22, 8, 8);
+        
+                ctx.beginPath();
+                ctx.moveTo(this.x+ox+4, this.y+22);
+                ctx.lineTo(this.x+ox+12, this.y+22);
+                ctx.lineTo(this.x+ox+12, this.y+30);
+                ctx.closePath(); 
+                ctx.fill();
+            
+                ctx.fillStyle = '#F3F701';
+                ctx.fillRect(this.x+ox+8, this.y+23, 2, 2);
+            
+                ctx.fillStyle = '#01F738';
+                ctx.fillRect(this.x+ox+10, this.y+25, 2, 2);
+                
+                if (this.atkFr >= 29) {
+                    this.attack = false;
+                    this.atkFr = 0;
+                }
+            } else {
+                ctx.fillStyle = "#BD974B";
+                ctx.fillRect(this.x-4, this.y+30, 4, 8);
+        
+                ctx.beginPath();
+                ctx.moveTo(this.x-4, this.y+30);
+                ctx.lineTo(this.x, this.y+22);
+                ctx.lineTo(this.x, this.y+30);
+                ctx.closePath(); 
+                ctx.fill();
+            
+                ctx.fillStyle = '#01F738';
+                ctx.fillRect(this.x-3, this.y+26, 2, 2);
+            }
+        }
 
         return;
     }
@@ -166,6 +291,10 @@ class Player {
             this.vy = -300;
             this.dir = FRONT;
         }
+    }
+    
+    attack() {
+        this.attack = true;
     }
 
     handleEntityCollision(ent, ox, oy) {
