@@ -48,6 +48,9 @@ class World {
           case 's':
             drawSpikes();
             break;
+          case 'k':
+            drawKid();
+            break;
         }
         ctx.restore();
       }
@@ -57,6 +60,11 @@ class World {
     }
   }
 
+}
+
+function drawKid() {
+  ctx.fillStyle = 'rgba(0, 0, 200, 1)';
+  ctx.fillRect(0, 0, 20, BLOCK_WIDTH);
 }
 
 function drawGround() {
