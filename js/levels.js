@@ -26,16 +26,16 @@ level[0] = "                         \n" +
            "                         \n" +
            "                         \n" +
            "                         \n" +
-           "                         \n" +
-           "                         \n" +
-           "                         \n" +
-           "            ggggg        \n" +
-           "     @    e dddddgg   k  \n" +
-           "ggggggggggggdddddddgggggg\n" +
-           "ddddddddddddddddddddddddd\n" +
-           "ddddddddddddddddddddddddd\n" +
-           "ddddddddddddddddddddddddd\n" +
-           "ddddddddddddddddddddddddd\n" +
+           "     @   e               \n" +
+           "gggggggggggg             \n" +
+           "dddddddddddd             \n" +
+           "dddddddddddd             \n" +
+           "dddddddddddd             \n" +
+           "ddddddddddd              \n" +
+           "dddddd              ggggg\n" +
+           "dddddd      sssssssgddddd\n" +
+           "dddddd k    gggggggdddddd\n" +
+           "ddddddggggggddddddddddddd\n" +
            "ddddddddddddddddddddddddd\n" +
            "ddddddddddddddddddddddddd\n" +
            "ddddddddddddddddddddddddd\n";
