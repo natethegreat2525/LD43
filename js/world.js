@@ -16,6 +16,12 @@ class World {
 
     for (let i = 0; i < this.width; i++) {
       for (let j = 0; j < this.height; j++) {
+        if (this.map[j][i] === 'e') {
+          let elf = new Elf(i * BLOCK_WIDTH, j * BLOCK_WIDTH);
+          this.entities.push(elf);
+          this.physics.addEntity(elf);
+          this.map[j][i] = ' ';
+        }
         if (this.map[j][i] === '@') {
           let player = new Player(i * BLOCK_WIDTH, j * BLOCK_WIDTH);
           this.entities.push(player);
