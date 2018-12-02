@@ -17,7 +17,7 @@ class World {
     for (let i = 0; i < this.width; i++) {
       for (let j = 0; j < this.height; j++) {
         if (this.map[j][i] === 'e') {
-          let elf = new Elf(i * BLOCK_WIDTH, j * BLOCK_WIDTH, 16, 40);
+          let elf = new Elf(i * BLOCK_WIDTH, j * BLOCK_WIDTH, 16, 40); //minWidth: 8 minHeight: 40
           this.entities.push(elf);
           this.physics.addEntity(elf);
           this.map[j][i] = ' ';
@@ -69,8 +69,26 @@ class World {
 }
 
 function drawKid() {
-  ctx.fillStyle = 'rgba(0, 0, 200, 1)';
-  ctx.fillRect(0, 0, 20, BLOCK_WIDTH);
+    //Feet
+    console.log('hi');
+    let fcxl = 2;
+    let fcxr = 7;
+    let fcy = 29;
+    ctx.fillStyle = "#000000";
+    ctx.fillRect(fcxl, fcy, 3, 3);
+    ctx.fillRect(fcxr, fcy, 3, 3);
+    //Body
+    ctx.fillStyle = "#0551AA";
+    ctx.fillRect(0, 15, 12, 14); //outline
+    ctx.fillStyle = "#2183F7";
+    ctx.fillRect(1, 16, 10, 12); //body
+    //Face
+    ctx.fillStyle = "#FEE3B7";
+    ctx.fillRect(2, 6, 9, 9); //face
+    //Eyes
+    ctx.fillStyle = "#000000";
+    ctx.fillRect(3, 10, 2, 2); //left eye
+    ctx.fillRect(7, 10, 2, 2); //right eye
 }
 
 function drawGround() {
