@@ -26,4 +26,11 @@ function update(timeStamp) {
   window.requestAnimationFrame(update);
 }
 
+reset = event => {
+  world = new World(lvl1);
+  event.preventDefault();
+}
+
+window.addEventListener("resetWorld", reset, false);
+
 window.requestAnimationFrame(update);
