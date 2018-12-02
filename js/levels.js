@@ -20,7 +20,7 @@ level[0] = "                         \n" +
            "ddddddddddddddddddddddddd\n" +
            "ddddddddddddddddddddddddd\n";
 
-level[0] = "                         \n" +
+level[1] = "                         \n" +
            "                         \n" +
            "                         \n" +
            "                         \n" +
