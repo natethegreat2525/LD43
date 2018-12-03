@@ -29,7 +29,6 @@ class Elf {
         if (this.alive) {
             drawElf(this.x, this.y, this.vx, this.vy, this.drawW, this.drawH, this.fr, this.dir, this.alive, this.mode, this.pushTimer);
         } else {
-            console.log(this.w, this.h, this.drawW, this.drawH);
             ctx.save();
             ctx.translate(this.x+this.drawH, this.y);
             ctx.rotate(Math.PI/2);
