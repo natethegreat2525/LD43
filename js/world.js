@@ -35,6 +35,12 @@ class World {
           this.physics.addEntity(player);
           this.map[j][i] = ' ';
         }
+        if (this.map[j][i] === 'b') {
+          let block = new Block(i * BLOCK_WIDTH, j * BLOCK_WIDTH);
+          this.entities.push(block);
+          this.physics.addEntity(block);
+          this.map[j][i] = ' ';
+        }
       }
     }
   }
