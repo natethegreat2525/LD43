@@ -80,7 +80,10 @@ class Physics {
             }
         }
         for (let idx in this.entities) {
-            let ent = this.entities[idx];            
+            let ent = this.entities[idx];
+            if (ent.static) {
+                continue;
+            }           
             let lmx = Math.floor(ent.x / BLOCK_WIDTH);
             let lmy = Math.floor(ent.y / BLOCK_WIDTH);
 
