@@ -8,11 +8,11 @@ level[0] = "                         \n" +
            "                         \n" +
            "                         \n" +
            "    @                    \n" +
-           "gggggg                   \n" +
-           "ddddddgg           e   k \n" +
-           "ddddddddg  e     b    ggg\n" +
-           "dddddddddgggggsssgggggddd\n" +
-           "ddddddddddddddgggdddddddd\n" +
+           " e ggggg                 \n" +
+           "gggdddddg              k \n" +
+           "dddddddddg            ggg\n" +
+           "ddddddddddgggsssssggggddd\n" +
+           "dddddddddddddgggggddddddd\n" +
            "ddddddddddddddddddddddddd\n" +
            "ddddddddddddddddddddddddd\n" +
            "ddddddddddddddddddddddddd\n" +
@@ -28,14 +28,14 @@ level[1] = "                         \n" +
            "                         \n" +
            "     @   e               \n" +
            "gggggggggggg             \n" +
-           "dddddddddddd             \n" +
-           "dddddddddddd             \n" +
-           "dddddddddddd             \n" +
-           "ddddddddddd              \n" +
-           "dddddd              ggggg\n" +
-           "dddddd      sssssssgddddd\n" +
-           "dddddd k    gggggggdddddd\n" +
-           "ddddddggggggddddddddddddd\n" +
+           "ddddddddddddsss          \n" +
+           "ddddddddddddggg          \n" +
+           "ddddddddddddddd       ggg\n" +
+           "ddddddddddd         ggddd\n" +
+           "dddddd              ddddd\n" +
+           "dddddd              ddddd\n" +
+           "dddddd k      ssssssddddd\n" +
+           "ddddddggggggggggggggddddd\n" +
            "ddddddddddddddddddddddddd\n" +
            "ddddddddddddddddddddddddd\n" +
            "ddddddddddddddddddddddddd\n";
@@ -49,8 +49,8 @@ level[2] = "                         \n" +
            "                         \n" +
            "                         \n" +
            "              gggg       \n" +
-           "           dd ddddg      \n" +
-           " @     gggggggdddddg  k  \n" +
+           "              ddddg      \n" +
+           " @  e  gggggggdddddg  k  \n" +
            "gggggggdddddddddddddggggg\n" +
            "ddddddddddddddddddddddddd\n" +
            "ddddddddddddddddddddddddd\n" +
@@ -63,16 +63,16 @@ level[2] = "                         \n" +
 level[3] = "                         \n" +
            "                         \n" +
            "                         \n" +
-           "                         \n" +
-           "                         \n" +
-           "                         \n" +
-           "                         \n" +
-           "                         \n" +
-           "                         \n" +
-           "                         \n" +
-           "    @       d         k  \n" +
-           "gggggggggggsssssggggggggg\n" +
-           "dddddddddddgggggddddddddd\n" +
+           "                        k\n" +
+           " e @ ee e e eeeeee     gg\n" +
+           "ggggggggggggggggggg    dd\n" +
+           "ddddddddddddddddddd    dd\n" +
+           "ddddddddddddddddddd    dd\n" +
+           "dddddddddddddddddddssssdd\n" +
+           "dddddddddddddddddddggggdd\n" +
+           "ddddddddddddddddddddddddd\n" +
+           "ddddddddddddddddddddddddd\n" +
+           "ddddddddddddddddddddddddd\n" +
            "ddddddddddddddddddddddddd\n" +
            "ddddddddddddddddddddddddd\n" +
            "ddddddddddddddddddddddddd\n" +
