@@ -170,14 +170,14 @@ level[8] = "                         \n" +
            "                         \n" +
            "                         \n" +
            "                         \n" +
-           "  @ e b                  \n" +
-           "dddddddddddddddddd       \n" +
-           "dddddddddddddddddd       \n" +
-           "ddddddddddddddddddddddddd\n" +
-           "ddddddddddddddddddddddddd\n" +
-           "ddddddddddddddddddddddddd\n" +
-           "ddddddddddddddddddddddddd\n" +
-           "ddddddddddddddddddddddddd\n" +
+           " t   @        f          \n" +
+           "gggggggg     gggg  ggssss\n" +
+           "dddddddd     dddd  ddgggg\n" +
+           "dddddddd     dddd    dddd\n" +
+           "dddddddd     dddd      dd\n" +
+           "ddddddddsssssdddd    k dd\n" +
+           "ddddddddddddddddd   gggdd\n" +
+           "dddddddddddddddddsssddddd\n" +
            "ddddddddddddddddddddddddd\n";
            
 level[9] = "                         \n" +

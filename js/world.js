@@ -24,7 +24,19 @@ class World {
     for (let i = 0; i < this.width; i++) {
       for (let j = 0; j < this.height; j++) {
         if (this.map[j][i] === 'e') {
-          let elf = new Elf(i * BLOCK_WIDTH, j * BLOCK_WIDTH, 16, 40); //minWidth: 8 minHeight: 40
+          let elf = new Elf(i * BLOCK_WIDTH, j * BLOCK_WIDTH, 20, 40); //minWidth: 8 minHeight: 40
+          this.entities.push(elf);
+          this.physics.addEntity(elf);
+          this.map[j][i] = ' ';
+        }
+        if (this.map[j][i] === 'f') {
+          let elf = new Elf(i * BLOCK_WIDTH, j * BLOCK_WIDTH, 64, 40); //minWidth: 8 minHeight: 40
+          this.entities.push(elf);
+          this.physics.addEntity(elf);
+          this.map[j][i] = ' ';
+        }
+        if (this.map[j][i] === 't') {
+          let elf = new Elf(i * BLOCK_WIDTH, j * BLOCK_WIDTH - 40, 16, 80); //minWidth: 8 minHeight: 40
           this.entities.push(elf);
           this.physics.addEntity(elf);
           this.map[j][i] = ' ';
