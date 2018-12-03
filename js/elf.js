@@ -14,24 +14,10 @@ class Elf {
         this.y = y;
         this.vx = 0;
         this.vy = 0;
-        if (!h) {
-            this.h = ELF_HEIGHT;
-        } else {
-            if (h < 40) {
-                this.h = 40;
-            } else {
-                this.h = h;
-            }
-        }
-        if (!w) {
-            this.w = ELF_WIDTH;
-        } else {
-            if (w < 8) {
-                this.w = 8;
-            } else {
-                this.w = w;
-            }
-        }
+        this.h = h || ELF_HEIGHT;
+        this.w = w || ELF_WIDTH;
+        this.drawH = h;
+        this.drawW = w;
         this.fr = 0;
         this.dir = FRONT;
         this.alive = true;
@@ -40,7 +26,15 @@ class Elf {
     }
 
     render() {
-        drawElf(this.x, this.y, this.vx, this.vy, this.w, this.h, this.fr, this.dir, this.alive, this.mode, this.pushTimer);
+        if (this.alive) {
+            drawElf(this.x, this.y, this.vx, this.vy, this.drawW, this.drawH, this.fr, this.dir, this.alive, this.mode, this.pushTimer);
+        } else {
+            ctx.save();
+            ctx.translate(this.x+this.drawH, this.y);
+            ctx.rotate(Math.PI/2);
+            drawElf(0, 0, this.vx, this.vy, this.drawW, this.drawH, this.fr, this.dir, this.alive, this.mode, this.pushTimer);
+            ctx.restore();        
+        }
     }
 
     findSanta() {
@@ -160,6 +154,7 @@ class Elf {
                         break;
                 }
             }
+            
             if (this.mustJumpLeft() && this.moveLeft) {
               this.jump = true;
             }
@@ -195,13 +190,21 @@ class Elf {
         this.fr++;
     }
 
+    die() {
+        this.alive = false;
+        this.w = this.drawH;
+        this.h = this.drawW;
+        this.y += this.w - this.h;
+        this.static = true;
+    }
+
     // Place all trigger cases before case for ground (g)
     handleMapCollision(blockId, OverlapX, OverlapY, i, j) {
         switch (blockId) {
             case 's':
                 if (j * BLOCK_WIDTH + 15 < this.y + this.h) {
                   if (this.alive) {
-                    this.alive = false;
+                    this.die();
                     this.lockedX = this.x;
                     this.lockedY = Math.max(this.y, j * BLOCK_WIDTH + 23 - this.h);
                   }

@@ -273,7 +273,12 @@ function drawElf(x, y, vx, vy, w, h, fr, dir, alive, mode, pushTimer) {
 
     ctx.fillStyle = "#ff0000";
     ctx.fillRect(x+0, y+h-40+33, w, 3);  //horizontal sash
-
+    
+    if (!alive) {
+        ctx.fillStyle = "#B70000";
+        ctx.fillRect(x+(w-2), y, 3, h);  
+    }
+    
     //Face
     ctx.fillStyle = "#FEE3B7";
     ctx.fillRect(x+(w/2 - 11/2), y+8, 11, 11); //face
@@ -324,28 +329,60 @@ function drawElf(x, y, vx, vy, w, h, fr, dir, alive, mode, pushTimer) {
 
     ctx.fillStyle = "#ff0000";
     ctx.fillRect(x+(w/2 - 13/2), y+7, 13, 2);  //hat stripe
-
-    if (dir == LEFT) {
-        //Eyes
-        ctx.fillStyle = "#000000";
-        ctx.fillRect(x+(w/2 - 4), y+12, 2, 2); //eye
-    }
-
-    if (dir == RIGHT) {
+    if (alive) {
+        if (dir == LEFT) {
             //Eyes
+            ctx.fillStyle = "#000000";
+            ctx.fillRect(x+(w/2 - 4), y+12, 2, 2); //eye
+        }
 
-        ctx.fillStyle = "#000000";
-        ctx.fillRect(x+(w/2 + 2), y+12, 2, 2); //eye
+        if (dir == RIGHT) {
+                //Eyes
+
+            ctx.fillStyle = "#000000";
+            ctx.fillRect(x+(w/2 + 2), y+12, 2, 2); //eye
+        }
+
+        if (dir == FRONT) {
+                //Eyes
+
+            ctx.fillStyle = "#000000";
+            ctx.fillRect(x+(w/2 - 4), y+12, 2, 2); //left eye
+            ctx.fillRect(x+(w/2 + 2), y+12, 2, 2); //right eye
+        }
+    } else {
+        ctx.beginPath();
+        ctx.moveTo(x+(w/2 - 5), y+12);
+        ctx.lineTo(x+(w/2 - 2), y+15);
+        ctx.closePath();
+        ctx.lineWidth = 1;
+        ctx.strokeStyle = '#000000';
+        ctx.stroke();
+        
+        ctx.beginPath();
+        ctx.moveTo(x+(w/2 - 2), y+12);
+        ctx.lineTo(x+(w/2 - 5), y+15);
+        ctx.closePath();
+        ctx.lineWidth = 1;
+        ctx.strokeStyle = '#000000';
+        ctx.stroke();
+        
+        ctx.beginPath();
+        ctx.moveTo(x+(w/2 + 1), y+12);
+        ctx.lineTo(x+(w/2 + 4), y+15);
+        ctx.closePath();
+        ctx.lineWidth = 1;
+        ctx.strokeStyle = '#000000';
+        ctx.stroke();
+        
+        ctx.beginPath();
+        ctx.moveTo(x+(w/2 + 4), y+12);
+        ctx.lineTo(x+(w/2 + 1), y+15);
+        ctx.closePath();
+        ctx.lineWidth = 1;
+        ctx.strokeStyle = '#000000';
+        ctx.stroke();
     }
-
-    if (dir == FRONT) {
-            //Eyes
-
-        ctx.fillStyle = "#000000";
-        ctx.fillRect(x+(w/2 - 4), y+12, 2, 2); //left eye
-        ctx.fillRect(x+(w/2 + 2), y+12, 2, 2); //right eye
-    }
-
     return;
 }
 
