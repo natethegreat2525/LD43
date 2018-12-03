@@ -15,20 +15,26 @@ class Elf {
         this.vx = 0;
         this.vy = 0;
         if (!h) {
+            this.drawH = ELF_HEIGHT;
             this.h = ELF_HEIGHT;
         } else {
             if (h < 40) {
+                this.drawH = 40;
                 this.h = 40;
             } else {
+                this.drawH = h;
                 this.h = h;
             }
         }
         if (!w) {
-            this.w = ELF_WIDTH;
+            this.drawW = ELF_WIDTH;
+            this.w = ELF_HEIGHT;
         } else {
             if (w < 8) {
-                this.w = 8;
+                this.drawW = 8;
+                this.w = 40;
             } else {
+                this.drawW = w;
                 this.w = w;
             }
         }
@@ -40,7 +46,15 @@ class Elf {
     }
 
     render() {
-        drawElf(this.x, this.y, this.vx, this.vy, this.w, this.h, this.fr, this.dir, this.alive, this.mode, this.pushTimer);
+        if (this.alive) {
+            drawElf(this.x, this.y, this.vx, this.vy, this.drawW, this.drawH, this.fr, this.dir, this.alive, this.mode, this.pushTimer);
+        } else {
+            ctx.save();
+            ctx.translate(this.x, this.y);
+            ctx.rotate(Math.PI/2);
+            drawElf(20, -40, this.vx, this.vy, this.drawW, this.drawH, this.fr, this.dir, this.alive, this.mode, this.pushTimer);
+            ctx.restore();        
+        }
     }
 
     findSanta() {
@@ -160,6 +174,7 @@ class Elf {
                         break;
                 }
             }
+            
             if (this.mustJumpLeft() && this.moveLeft) {
               this.jump = true;
             }
