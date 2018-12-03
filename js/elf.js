@@ -183,7 +183,7 @@ class Elf {
                   if (this.alive) {
                     this.alive = false;
                     this.lockedX = this.x;
-                    this.lockedY = this.y;
+                    this.lockedY = Math.max(this.y, j * BLOCK_WIDTH + 23 - this.h);
                   }
                 }
                 return false;
@@ -200,14 +200,15 @@ class Elf {
             let rightDist = 5;
             let leftDist = 5;
             for (let i = 0; i < 3; i++) {
-                let below = world.getValue(mx+i, my+1) === ' ';
-                if (world.getValue(mx+i, my) !== ' ' || below === 's') {
+                let below = world.getValue(mx+i, my+1);
+                if (world.getValue(mx+i, my) !== ' ' || below === 's' || below === ' ') {
                     rightDist = i;
                     break;
                 }
             }
             for (let i = 0; i < 3; i++) {
-                if (world.getValue(mx-i, my) !== ' ') {
+                let below = world.getValue(mx-i, my+1);
+                if (world.getValue(mx-i, my) !== ' ' || below === 's' || below === ' ') {
                     leftDist = i;
                     break;
                 }
