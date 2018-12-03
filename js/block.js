@@ -8,7 +8,7 @@ class Block {
         this.vy = 0;
         this.w = BLOCK_SIZE;
         this.h = BLOCK_SIZE;
-        this.friction = .4;
+        this.friction = .8;
     }
 
     render() {
@@ -43,21 +43,6 @@ class Block {
     handleMapCollision(val) {
         if (val === 's') {
             return false;
-        }
-        return true;
-    }
-
-    handleEntityCollision(ent, overlapX, overlapY) {
-        if(ent instanceof Player) {
-            if (Math.abs(overlapX) > .1) {
-                ent.x -= overlapX * .9;
-            }
-            if (overlapX > 0) {
-                ent.vx = Math.min(0, ent.vx);
-            }
-            if (overlapX < 0) {
-                ent.vx = Math.max(0, ent.vx);
-            }   
         }
         return true;
     }

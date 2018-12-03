@@ -144,21 +144,17 @@ class Elf {
                       break;
                   case REINDEER_MODE: {
                         let dx = santa.x - this.x;
-                        let dy = santa.y - this.y;
-                        if (Math.sqrt(dx * dx + dy * dy) > 300) {
-                            this.mode = NEUTRAL_MODE;
-                        } else {
-                            if (dx > 0) {
-                                if (!this.moveLeftSafe()) {
-                                    this.jump = true;
-                                }
-                                this.moveLeft = true;
-                            } else {
-                                if (!this.moveRightSafe()) {
-                                    this.jump = true;
-                                }
-                                this.moveRight = true;
+                    
+                        if (dx > 0) {
+                            if (!this.moveLeftSafe()) {
+                                this.jump = true;
                             }
+                            this.moveLeft = true;
+                        } else {
+                            if (!this.moveRightSafe()) {
+                                this.jump = true;
+                            }
+                            this.moveRight = true;
                         }
                         }
                         break;
