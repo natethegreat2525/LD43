@@ -63,3 +63,4 @@ let sKey = keyboard(40);
 let uKey = keyboard(85);
 let iKey = keyboard(73);
 let oKey = keyboard(79);
+let pKey = keyboard(80);

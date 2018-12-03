@@ -47,7 +47,7 @@ class Player {
         }
         drawPlayer(this.x, this.y, this.vx, this.vy, this.w, this.h, this.atkFr, this.fr, this.dir, this.attack);
         if (this.elvesInRange.length > 0) {
-            drawOptions(this.x + this.w/2, this.y, ["(u) Grant the power of flight", "(i) Help me fix this toy", "(o) Boo!"]);
+            drawOptions(this.x + this.w/2, this.y, ["(u) Grant the power of flight", "(i) Help me fix this toy", "(o) Boo!", "(p) Push"]);
         }
     }
 
@@ -82,7 +82,7 @@ class Player {
             if (ent instanceof Elf && ent.alive) {
                 let dx = ent.x - this.x;
                 let dy = ent.y - this.y;
-                if (Math.sqrt(dx * dx + dy * dy) < 60 && ((dx > 0 && this.dir === RIGHT) || (dx < 0 && this.dir === LEFT))) {
+                if (Math.sqrt(dx * dx + dy * dy) < 40 && ((dx > 0 && this.dir === RIGHT) || (dx < 0 && this.dir === LEFT))) {
                     this.elvesInRange.push(ent);
                 }
             }
@@ -91,17 +91,13 @@ class Player {
         if (uKey.isDown) {
             for (let idx in this.elvesInRange) {
                 let elf = this.elvesInRange[idx];
-                if (elf.mode === NEUTRAL_MODE) {
-                    elf.mode = REINDEER_MODE;
-                }
+                elf.mode = REINDEER_MODE;
             }
         }
         if (iKey.isDown) {
             for (let idx in this.elvesInRange) {
                 let elf = this.elvesInRange[idx];
-                if (elf.mode === NEUTRAL_MODE) {
-                    elf.mode = FOLLOW_MODE;
-                }
+                elf.mode = FOLLOW_MODE;
             }
         }
         if (oKey.isDown) {
@@ -110,10 +106,25 @@ class Player {
                 elf.mode = FLEE_MODE;
             }
         }
-    }
-    
-    attack() {
-        this.attack = true;
+        if (pKey.isDown) {
+            for (let idx in this.elvesInRange) {
+                let elf = this.elvesInRange[idx];
+                if (elf.x < this.x) {
+                    elf.vx = -200;
+                } else {
+                    elf.vx = 200;
+                }
+
+            }
+        }
+        if (spaceKey.isDown) {
+            this.attack = true;
+            for (let idx in this.elvesInRange) {
+                let elf = this.elvesInRange[idx];
+                elf.y -= 10;
+                elf.die();
+            }
+        }
     }
 
     handleEntityCollision(ent, ox, oy) {
