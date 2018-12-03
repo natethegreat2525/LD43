@@ -1,4 +1,4 @@
-const BLOCK_SIZE = 40;
+const BLOCK_SIZE = 32;
 
 class Block {
     constructor(x, y) {
@@ -14,10 +14,10 @@ class Block {
     render() {
         ctx.save();
         ctx.translate(this.x,this.y);
-        let sp = 5;
+        let sp = 1;
         ctx.fillStyle = 'rgba(59, 59, 59, 1)';
         ctx.fillRect(sp, sp, BLOCK_SIZE, BLOCK_SIZE);
-        /*ctx.fillStyle = 'rgba(49, 49, 49, 1)';
+        ctx.fillStyle = 'rgba(49, 49, 49, 1)';
         ctx.beginPath();
         ctx.moveTo(-sp, -sp);
         ctx.lineTo(sp, sp);
@@ -32,12 +32,19 @@ class Block {
         ctx.lineTo(BLOCK_SIZE + sp, sp);
         ctx.lineTo(sp-1, sp);
         ctx.closePath();
-        ctx.fill();*/
+        ctx.fill();
         ctx.restore();
     }
 
     update(dt) {
         this.vx *= this.friction;
+    }
+
+    handleMapCollision(val) {
+        if (val === 's') {
+            return false;
+        }
+        return true;
     }
 
     handleEntityCollision(ent, overlapX, overlapY) {
