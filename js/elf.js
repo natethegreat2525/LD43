@@ -35,7 +35,7 @@ class Elf {
         this.fr = 0;
         this.dir = FRONT;
         this.alive = true;
-        this.mode = FLEE_MODE;
+        this.mode = NEUTRAL_MODE;
         this.pushTimer = 0;
     }
 
@@ -135,9 +135,27 @@ class Elf {
                       }
                       }
                       break;
-                  case REINDEER_MODE:
-
-                      break;
+                  case REINDEER_MODE: {
+                        let santa = this.findSanta();
+                        let dx = santa.x - this.x;
+                        let dy = santa.y - this.y;
+                        if (Math.sqrt(dx * dx + dy * dy) > 300) {
+                            this.mode = NEUTRAL_MODE;
+                        } else {
+                            if (dx > 0) {
+                                if (!this.moveLeftSafe()) {
+                                    this.jump = true;
+                                }
+                                this.moveLeft = true;
+                            } else {
+                                if (!this.moveRightSafe()) {
+                                    this.jump = true;
+                                }
+                                this.moveRight = true;
+                            }
+                        }
+                        }
+                        break;
                 }
             }
             if (this.mustJumpLeft() && this.moveLeft) {
