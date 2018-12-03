@@ -16,6 +16,7 @@ class Player {
         this.fr = 0;
         this.dir = FRONT;
         this.attack = false;
+        this.elvesInRange = [];
     }
 
     render() {
@@ -45,6 +46,9 @@ class Player {
             }
         }
         drawPlayer(this.x, this.y, this.vx, this.vy, this.w, this.h, this.atkFr, this.fr, this.dir, this.attack);
+        if (this.elvesInRange.length > 0) {
+            drawOptions(this.x + this.w/2, this.y, ["(u) Grant the power of flight", "(i) Help me fix this toy", "(o) Boo!"]);
+        }
     }
 
     update(dt) {
@@ -70,6 +74,41 @@ class Player {
         if ((upKey.isDown || wKey.isDown) && this.grounded) {
             this.vy = -300;
             this.dir = FRONT;
+        }
+
+        this.elvesInRange = [];
+        for (let i = 0; i < world.entities.length; i++) {
+            let ent = world.entities[i];
+            if (ent instanceof Elf && ent.alive) {
+                let dx = ent.x - this.x;
+                let dy = ent.y - this.y;
+                if (Math.sqrt(dx * dx + dy * dy) < 60 && ((dx > 0 && this.dir === RIGHT) || (dx < 0 && this.dir === LEFT))) {
+                    this.elvesInRange.push(ent);
+                }
+            }
+        }
+
+        if (uKey.isDown) {
+            for (let idx in this.elvesInRange) {
+                let elf = this.elvesInRange[idx];
+                if (elf.mode === NEUTRAL_MODE) {
+                    elf.mode = REINDEER_MODE;
+                }
+            }
+        }
+        if (iKey.isDown) {
+            for (let idx in this.elvesInRange) {
+                let elf = this.elvesInRange[idx];
+                if (elf.mode === NEUTRAL_MODE) {
+                    elf.mode = FOLLOW_MODE;
+                }
+            }
+        }
+        if (oKey.isDown) {
+            for (let idx in this.elvesInRange) {
+                let elf = this.elvesInRange[idx];
+                elf.mode = FLEE_MODE;
+            }
         }
     }
     

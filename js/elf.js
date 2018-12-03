@@ -123,14 +123,16 @@ class Elf {
                       if (Math.sqrt(dx * dx + dy * dy) > 300) {
                         this.mode = NEUTRAL_MODE;
                       } else {
-                        if (dx < 0) {
-                          if (this.moveLeftSafe()) {
-                            this.moveLeft = true;
-                          }
-                        } else {
-                          if (this.moveRightSafe()) {
-                            this.moveRight = true;
-                          }
+                        if (Math.abs(dx) > 40) {
+                            if (dx < 0) {
+                                if (this.moveLeftSafe()) {
+                                    this.moveLeft = true;
+                                }
+                            } else {
+                                if (this.moveRightSafe()) {
+                                    this.moveRight = true;
+                                }
+                            }
                         }
                       }
                       }

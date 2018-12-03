@@ -59,3 +59,7 @@ let aKey = keyboard(65);
 let dKey = keyboard(68);
 let wKey = keyboard(87);
 let sKey = keyboard(40);
+
+let uKey = keyboard(85);
+let iKey = keyboard(73);
+let oKey = keyboard(79);

@@ -348,3 +348,17 @@ function drawElf(x, y, vx, vy, w, h, fr, dir, alive, mode, pushTimer) {
 
     return;
 }
+
+function drawOptions(x, y, opts) {
+    ctx.fillStyle = 'rgba(0, 0, 0, .5)';
+    for (let i = 0; i < opts.length; i++) {
+        ctx.fillRect(x - 60, y - 80 + i * 20, 200, 18);
+    }
+
+    ctx.fillStyle = '#ffffff';
+    ctx.font = '16px Arial';
+
+    for (let i = 0; i < opts.length; i++) {
+        ctx.fillText(opts[i], x - 58, y - 66 + i * 20);
+    }
+}
