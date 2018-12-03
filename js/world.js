@@ -53,35 +53,43 @@ class World {
   }
 
   render() {
+    this.renderMap(0);
+    for (let idx in this.entities) {
+      this.entities[idx].render();
+    }
+    this.renderMap(1);
+  }
+
+  renderMap(pass) {
     for (let i = this.width - 1; i >= 0; i--) {
       for (let j = this.height - 1; j >= 0; j--) {
         ctx.save();
         ctx.translate(BLOCK_WIDTH * i, BLOCK_WIDTH * j);
         switch (this.map[j][i]) {
           case 'g':
-            drawGround();
+            drawGround(pass);
             break;
           case 'd':
-            drawDirt();
+            drawDirt(pass);
             break;
           case 's':
-            drawSpikes();
+            drawSpikes(pass);
             break;
           case 'k':
-            drawKid();
+            drawKid(pass);
             break;
         }
         ctx.restore();
       }
     }
-    for (let idx in this.entities) {
-      this.entities[idx].render();
-    }
   }
 
 }
 
-function drawKid() {
+
+
+function drawKid(pass) {
+    if (pass > 0) return;
     //Feet
     let fcxl = 2;
     let fcxr = 7;
@@ -103,52 +111,59 @@ function drawKid() {
     ctx.fillRect(7, 10, 2, 2); //right eye
 }
 
-function drawGround() {
+function drawGround(pass) {
   let sp = 5;
-  ctx.fillStyle = 'rgba(220, 220, 240, 1)';
-  ctx.fillRect(sp, sp, BLOCK_WIDTH, BLOCK_WIDTH);
-  ctx.fillStyle = 'rgba(200, 200, 220, 1)';
-  ctx.beginPath();
-  ctx.moveTo(-sp, -sp);
-  ctx.lineTo(sp, sp);
-  ctx.lineTo(sp, sp + BLOCK_WIDTH);
-  ctx.lineTo(-sp, -sp + BLOCK_WIDTH);
-  ctx.closePath();
-  ctx.fill();
-  ctx.fillStyle = 'rgba(255, 255, 255, 1)';
-  ctx.beginPath();
-  ctx.moveTo(-sp-1, -sp);
-  ctx.lineTo(BLOCK_WIDTH - sp, -sp);
-  ctx.lineTo(BLOCK_WIDTH + sp, sp);
-  ctx.lineTo(sp-1, sp);
-  ctx.closePath();
-  ctx.fill();
+  if (pass === 1) {
+    ctx.fillStyle = 'rgba(220, 220, 240, 1)';
+    ctx.fillRect(sp, sp, BLOCK_WIDTH, BLOCK_WIDTH);
+  } else if (pass === 0) {
+    ctx.fillStyle = 'rgba(200, 200, 220, 1)';
+    ctx.beginPath();
+    ctx.moveTo(-sp, -sp);
+    ctx.lineTo(sp, sp);
+    ctx.lineTo(sp, sp + BLOCK_WIDTH);
+    ctx.lineTo(-sp, -sp + BLOCK_WIDTH);
+    ctx.closePath();
+    ctx.fill();
+    ctx.fillStyle = 'rgba(255, 255, 255, 1)';
+    ctx.beginPath();
+    ctx.moveTo(-sp-1, -sp);
+    ctx.lineTo(BLOCK_WIDTH - sp, -sp);
+    ctx.lineTo(BLOCK_WIDTH + sp, sp);
+    ctx.lineTo(sp-1, sp);
+    ctx.closePath();
+    ctx.fill();
+  }
 }
 
-function drawDirt() {
+function drawDirt(pass) {
   let sp = 5;
-  ctx.fillStyle = 'rgba(59, 25, 8, 1)';
-  ctx.fillRect(sp, sp, BLOCK_WIDTH, BLOCK_WIDTH);
-  ctx.fillStyle = 'rgba(35, 15, 5, 1)';
-  ctx.beginPath();
-  ctx.moveTo(-sp, -sp);
-  ctx.lineTo(sp, sp);
-  ctx.lineTo(sp, sp + BLOCK_WIDTH);
-  ctx.lineTo(-sp, -sp + BLOCK_WIDTH);
-  ctx.closePath();
-  ctx.fill();
-  ctx.fillStyle = 'rgba(69, 35, 10, 1)';
-  ctx.beginPath();
-  ctx.moveTo(-sp-1, -sp);
-  ctx.lineTo(BLOCK_WIDTH - sp, -sp);
-  ctx.lineTo(BLOCK_WIDTH + sp, sp);
-  ctx.lineTo(sp-1, sp);
-  ctx.closePath();
-  ctx.fill();
+  if (pass === 1) {
+    ctx.fillStyle = 'rgba(59, 25, 8, 1)';
+    ctx.fillRect(sp, sp, BLOCK_WIDTH, BLOCK_WIDTH);
+  } else if (pass === 0) {
+    ctx.fillStyle = 'rgba(35, 15, 5, 1)';
+    ctx.beginPath();
+    ctx.moveTo(-sp, -sp);
+    ctx.lineTo(sp, sp);
+    ctx.lineTo(sp, sp + BLOCK_WIDTH);
+    ctx.lineTo(-sp, -sp + BLOCK_WIDTH);
+    ctx.closePath();
+    ctx.fill();
+    ctx.fillStyle = 'rgba(69, 35, 10, 1)';
+    ctx.beginPath();
+    ctx.moveTo(-sp-1, -sp);
+    ctx.lineTo(BLOCK_WIDTH - sp, -sp);
+    ctx.lineTo(BLOCK_WIDTH + sp, sp);
+    ctx.lineTo(sp-1, sp);
+    ctx.closePath();
+    ctx.fill();
+  }
 }
 
 
-function drawSpikes() {
+function drawSpikes(pass) {
+  if (pass > 0) return;
   ctx.fillStyle = 'rgb(200, 200, 200)';
   ctx.strokeStyle = 'rgb(100, 100, 100)'
   sw = BLOCK_WIDTH / 6;
