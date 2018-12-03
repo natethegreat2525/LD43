@@ -80,8 +80,8 @@ class Player {
         for (let i = 0; i < world.entities.length; i++) {
             let ent = world.entities[i];
             if (ent instanceof Elf && ent.alive) {
-                let dx = ent.x - this.x;
-                let dy = ent.y - this.y;
+                let dx = ent.x + ent.w/2 - this.x - this.w/2;
+                let dy = ent.y + ent.h/2 - this.y - this.h/2;
                 if (Math.sqrt(dx * dx + dy * dy) < 40 && ((dx > 0 && this.dir === RIGHT) || (dx < 0 && this.dir === LEFT))) {
                     this.elvesInRange.push(ent);
                 }

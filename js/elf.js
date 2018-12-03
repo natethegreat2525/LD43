@@ -105,8 +105,8 @@ class Elf {
             if (!this.moveLeft && !this.moveRight) {
                 switch (this.mode) {
                   case FLEE_MODE: {
-                      let dx = santa.x - this.x;
-                      let dy = santa.y - this.y;
+                      let dx = santa.x + santa.w/2 - this.x - this.w/2;
+                      let dy = santa.y + santa.h/2 - this.y - this.h/2;
                       if (Math.sqrt(dx * dx + dy * dy) > 300) {
                         this.mode = NEUTRAL_MODE;
                       } else {
@@ -123,20 +123,16 @@ class Elf {
                       }
                       break;
                   case FOLLOW_MODE: {
-                      let dx = santa.x - this.x;
-                      let dy = santa.y - this.y;
+                      let dx = santa.x + santa.w/2 - this.x - this.w/2;
+                      let dy = santa.y + santa.h/2 - this.y - this.h/2;
                       if (Math.sqrt(dx * dx + dy * dy) > 300) {
                         this.mode = NEUTRAL_MODE;
                       } else {
                         if (Math.abs(dx) > 40) {
                             if (dx < 0) {
-                                if (this.moveLeftSafe()) {
                                     this.moveLeft = true;
-                                }
                             } else {
-                                if (this.moveRightSafe()) {
                                     this.moveRight = true;
-                                }
                             }
                         }
                       }
@@ -225,6 +221,9 @@ class Elf {
 
     handleEntityCollision(ent) {
         if (ent instanceof Player && this.alive) {
+            return false;
+        }
+        if (ent instanceof Elf && this.alive && ent.alive) {
             return false;
         }
 
