@@ -164,38 +164,38 @@ level[8] = "                         \n" +
            "                         \n" +
            "                         \n" +
            "                         \n" +
-           "                         \n" +
-           "                         \n" +
-           "                         \n" +
-           "                         \n" +
-           "                         \n" +
-           "                         \n" +
-           " t   @        f          \n" +
-           "gggggggg     gggg  ggssss\n" +
-           "dddddddd     dddd  ddgggg\n" +
-           "dddddddd     dddd    dddd\n" +
-           "dddddddd     dddd      dd\n" +
-           "ddddddddsssssdddd    k dd\n" +
-           "ddddddddddddddddd   gggdd\n" +
-           "dddddddddddddddddsssddddd\n" +
+           "        @  f  t          \n" +
+           "ggggg  gggggggggg  gggsss\n" +
+           "ddddd  dddddddddd  dddggg\n" +
+           "ddddd  dddddddddd    dddd\n" +
+           "ddddd  dddddddddd      dd\n" +
+           "ddddd  dddddddddd      dd\n" +
+           "ddddd  dddddddddd   gg dd\n" +
+           "ddddd  ddddddddddsssdd dd\n" +
+           "dd              dgggd  dd\n" +
+           "dd                     dd\n" +
+           "dd k                   dd\n" +
+           "ddgggsssssssgggggggggggdd\n" +
+           "dddddgggggggddddddddddddd\n" +
+           "ddddddddddddddddddddddddd\n" +
            "ddddddddddddddddddddddddd\n";
-           
-level[9] = "                         \n" +
-           "                         \n" +
-           "                         \n" +
-           "                         \n" +
-           "                         \n" +
-           "                         \n" +
-           "                         \n" +
-           "                         \n" +
-           "                         \n" +
-           "                         \n" +
-           "                         \n" +
+
+level[9] = "ddddddddddddddddddddddddd\n" +
            "ddddddddddddddddddddddddd\n" +
            "ddddddddddddddddddddddddd\n" +
            "ddddddddddddddddddddddddd\n" +
-           "ddddddddddddddddddddddddd\n" +
-           "ddddddddddddddddddddddddd\n" +
+           "dddd dddddddddddddddddddd\n" +
+           "dd     ddddddddd    ddddd\n" +
+           "d       ddddd         ddd\n" +
+           "       kddddd            \n" +
+           "     gggdddddg   f       \n" +
+           "g   gdddddddddgggggg    g\n" +
+           "dg                     gd\n" +
+           "ddg                    dd\n" +
+           "dddg   gggggggg  @ ggggdd\n" +
+           "dddd     e        gdddddd\n" +
+           "dddd             gddddddd\n" +
+           "ddddgggggggggggggdddddddd\n" +
            "ddddddddddddddddddddddddd\n" +
            "ddddddddddddddddddddddddd\n" +
            "ddddddddddddddddddddddddd\n";
