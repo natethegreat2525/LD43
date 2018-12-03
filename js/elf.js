@@ -27,13 +27,16 @@ class Elf {
 
     render() {
         if (this.alive) {
+            if (this.sayHi) {
+                drawSayHi(this.x, this.y);
+            }
             drawElf(this.x, this.y, this.vx, this.vy, this.drawW, this.drawH, this.fr, this.dir, this.alive, this.mode, this.pushTimer);
         } else {
             ctx.save();
             ctx.translate(this.x+this.drawH, this.y);
             ctx.rotate(Math.PI/2);
             drawElf(0, 0, this.vx, this.vy, this.drawW, this.drawH, this.fr, this.dir, this.alive, this.mode, this.pushTimer);
-            ctx.restore();        
+            ctx.restore();
         }
     }
 
@@ -86,13 +89,22 @@ class Elf {
     }
 
   	update(dt) {
+        let santa = this.findSanta();
+        if (santa) {
+            let dx = santa.x - this.x;
+            let dy = santa.y - this.y;
+            if (Math.sqrt(dx*dx + dy*dy) < 70 && this.mode === NEUTRAL_MODE) {
+                this.sayHi = true;
+            } else {
+                this.sayHi = false;
+            }
+        }
         this.dir = FRONT;
 
         if (this.alive) {
             if (!this.moveLeft && !this.moveRight) {
                 switch (this.mode) {
                   case FLEE_MODE: {
-                      let santa = this.findSanta();
                       let dx = santa.x - this.x;
                       let dy = santa.y - this.y;
                       if (Math.sqrt(dx * dx + dy * dy) > 300) {
@@ -111,7 +123,6 @@ class Elf {
                       }
                       break;
                   case FOLLOW_MODE: {
-                      let santa = this.findSanta();
                       let dx = santa.x - this.x;
                       let dy = santa.y - this.y;
                       if (Math.sqrt(dx * dx + dy * dy) > 300) {
@@ -132,7 +143,6 @@ class Elf {
                       }
                       break;
                   case REINDEER_MODE: {
-                        let santa = this.findSanta();
                         let dx = santa.x - this.x;
                         let dy = santa.y - this.y;
                         if (Math.sqrt(dx * dx + dy * dy) > 300) {
@@ -195,7 +205,6 @@ class Elf {
         this.w = this.drawH;
         this.h = this.drawW;
         this.y += this.w - this.h;
-        this.static = true;
     }
 
     // Place all trigger cases before case for ground (g)
@@ -203,8 +212,11 @@ class Elf {
         switch (blockId) {
             case 's':
                 if (j * BLOCK_WIDTH + 15 < this.y + this.h) {
-                  if (this.alive) {
-                    this.die();
+                  if (this.alive || !this.static) {
+                    if (this.alive) {
+                        this.die();
+                    }
+                    this.static = true;
                     this.lockedX = this.x;
                     this.lockedY = Math.max(this.y, j * BLOCK_WIDTH + 23 - this.h);
                   }
@@ -216,38 +228,10 @@ class Elf {
     }
 
     handleEntityCollision(ent) {
-        if (ent.y + ent.h < this.y + 10) {
-            let mx = Math.floor((ent.x + ent.w/2) / BLOCK_WIDTH);
-            let my = Math.floor((this.y + this.h/2) / BLOCK_WIDTH);
-
-            let rightDist = 5;
-            let leftDist = 5;
-            for (let i = 0; i < 3; i++) {
-                let below = world.getValue(mx+i, my+1);
-                if (world.getValue(mx+i, my) !== ' ' || below === 's' || below === ' ') {
-                    rightDist = i;
-                    break;
-                }
-            }
-            for (let i = 0; i < 3; i++) {
-                let below = world.getValue(mx-i, my+1);
-                if (world.getValue(mx-i, my) !== ' ' || below === 's' || below === ' ') {
-                    leftDist = i;
-                    break;
-                }
-            }
-            //player trying to jump on top
-            if (leftDist === rightDist) {
-                if (ent.x < this.x) {
-                    this.moveRight = true;
-                } else {
-                    this.moveLeft = true;
-                }
-            } else if (leftDist > rightDist) {
-                this.moveLeft = true;
-            } else {
-                this.moveRight = true;
-            }
+        if (ent instanceof Player && this.alive) {
+            return false;
         }
+
+        return true;
     }
 }

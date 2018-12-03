@@ -399,3 +399,12 @@ function drawOptions(x, y, opts) {
         ctx.fillText(opts[i], x - 58, y - 66 + i * 20);
     }
 }
+
+function drawSayHi(x, y) {
+    ctx.fillStyle = 'rgba(0, 0, 0, .5)';
+    ctx.fillRect(x - 30, y - 30, 60, 18);
+
+    ctx.fillStyle = '#ffffff';
+    ctx.font = '16px Arial';
+    ctx.fillText("Hi Santa!", x - 28, y - 15);
+}
