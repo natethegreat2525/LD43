@@ -11,7 +11,7 @@ class LevelManager {
             currentLevel++;
             window.dispatchEvent(resetWorldEvent);
             present = false;
-        }, 1500);
+        }, 1000);
         present = true;
         event.preventDefault();
     }

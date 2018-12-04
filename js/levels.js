@@ -132,7 +132,7 @@ level[6] = "   dddddddddddddd        \n" +
            "ddddd            dd gdddd\n" +
            "d       g           ddddd\n" +
            "d      ggg          ddddd\n" +
-           "dbe  ggdddg   gggg  ddddd\n" +
+           "d e  ggdddg   gggg  ddddd\n" +
            "dddggddddddsssddddggddddd\n" +
            "ddddddddddddddddddddddddd\n" +
            "ddddddddddddddddddddddddd\n" +
@@ -240,6 +240,7 @@ level[11] ="                         \n" +
            "ddddddddddddddddddddddddd\n" +
            "ddddddddddddddddddddddddd\n" +
            "ddddddddddddddddddddddddd\n";
+           
 level[12] ="                         \n" +
            "                         \n" +
            "                         \n" +
