@@ -25,7 +25,10 @@ class Elf {
         this.pushTimer = 0;
     }
 
-    render() {
+    render(pass) {
+        if (pass === 1) {
+            return;
+        }
         if (this.alive) {
             if (this.sayHi) {
                 drawSayHi(this.x, this.y);

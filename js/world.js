@@ -67,9 +67,12 @@ class World {
   render() {
     this.renderMap(0);
     for (let idx in this.entities) {
-      this.entities[idx].render();
+      this.entities[idx].render(0);
     }
     this.renderMap(1);
+    for (let idx in this.entities) {
+      this.entities[idx].render(1);
+    }
   }
 
   renderMap(pass) {
