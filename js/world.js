@@ -55,6 +55,11 @@ class World {
           this.physics.addEntity(block);
           this.map[j][i] = ' ';
         }
+        if (this.map[j][i] === 'A') {
+          let tree = new Tree(i * BLOCK_WIDTH, j * BLOCK_WIDTH);
+          this.entities.push(tree);
+          this.map[j][i] = ' ';
+        }
       }
     }
   }
