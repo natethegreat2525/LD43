@@ -161,11 +161,11 @@ level[7] = "                         \n" +
            "ddddddddddddddddddddddddd\n";
 
 level[8] = "                         \n" +
-           "                         \n" +
-           "                         \n" +
-           "                         \n" +
-           "        @  f  t          \n" +
-           "ggggg  gggggggggg  gggsss\n" +
+           "    gggggg               \n" +
+           "   gd     gggg           \n" +
+           "  gdd                    \n" +
+           "ggddd    tg  @      f    \n" +
+           "ddddd  gggggggggg  gggsss\n" +
            "ddddd  dddddddddd  dddggg\n" +
            "ddddd  dddddddddd    dddd\n" +
            "ddddd  dddddddddd      dd\n" +
@@ -175,8 +175,8 @@ level[8] = "                         \n" +
            "dd              dgggd  dd\n" +
            "dd                     dd\n" +
            "dd k                   dd\n" +
-           "ddgggsssssssgggggggggggdd\n" +
-           "dddddgggggggddddddddddddd\n" +
+           "ddgggssssssggggggggggggdd\n" +
+           "dddddggggggdddddddddddddd\n" +
            "ddddddddddddddddddddddddd\n" +
            "ddddddddddddddddddddddddd\n";
 
@@ -206,18 +206,19 @@ level[10] ="                         \n" +
            "                         \n" +
            "                         \n" +
            "                         \n" +
-           "                         \n" +
-           "                         \n" +
-           "                         \n" +
-           "                         \n" +
-           "                         \n" +
-           "ddddddddddddddddddddddddd\n" +
-           "ddddddddddddddddddddddddd\n" +
-           "ddddddddddddddddddddddddd\n" +
-           "ddddddddddddddddddddddddd\n" +
-           "ddddddddddddddddddddddddd\n" +
-           "ddddddddddddddddddddddddd\n" +
-           "ddddddddddddddddddddddddd\n" +
+           "   e   @t                \n" +
+           "ggggg gggggsssss         \n" +
+           "ddddd  ddddgggggggggg    \n" +
+           "ddddd  ddddddddddd       \n" +
+           "ddddd   ddddddddd        \n" +
+           "ddddd                gggg\n" +
+           "dddddsg             gdddd\n" +
+           "dddddgggg          gddddd\n" +
+           "d                 gdddddd\n" +
+           "               gggddddddd\n" +
+           " k           ggdddddddddd\n" +
+           "gggsssssgggggdddddddddddd\n" +
+           "dddgggggddddddddddddddddd\n" +
            "ddddddddddddddddddddddddd\n";
            
 level[11] ="                         \n" +

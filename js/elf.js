@@ -91,8 +91,8 @@ class Elf {
   	update(dt) {
         let santa = this.findSanta();
         if (santa) {
-            let dx = santa.x - this.x;
-            let dy = santa.y - this.y;
+            let dx = santa.x + santa.w/2 - this.x - this.w/2;
+            let dy = santa.y + santa.h/2 - this.y - this.h/2;
             if (Math.sqrt(dx*dx + dy*dy) < 70 && this.mode === NEUTRAL_MODE) {
                 this.sayHi = true;
             } else {
