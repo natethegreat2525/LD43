@@ -10,8 +10,9 @@ class LevelManager {
         setTimeout(() => {
             currentLevel++;
             window.dispatchEvent(resetWorldEvent);
-        }, 500);
-
+            present = false;
+        }, 1500);
+        present = true;
         event.preventDefault();
     }
 }

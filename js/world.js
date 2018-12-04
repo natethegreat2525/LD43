@@ -1,5 +1,7 @@
 const BLOCK_WIDTH = 32;
 
+let present = false;
+
 class World {
   constructor(map) {
     this.entities = [];
@@ -124,6 +126,25 @@ function drawKid(pass) {
     ctx.fillStyle = "#000000";
     ctx.fillRect(3, 10, 2, 2); //left eye
     ctx.fillRect(7, 10, 2, 2); //right eye
+    
+    if (present) {
+        ctx.fillStyle = "#1018f2";
+        ctx.fillRect(16, 25, 8, 8)   
+        
+        ctx.fillStyle = "#ff0000";
+        ctx.fillRect(19, 25, 2, 8);
+        
+        ctx.beginPath();
+        ctx.moveTo(19, 25);
+        ctx.lineTo(15, 24);
+        ctx.lineTo(17, 22);
+        ctx.lineTo(19, 25);
+        ctx.lineTo(23, 24);
+        ctx.lineTo(21, 22);
+        ctx.closePath();
+        ctx.strokeStyle = "#ff0000";
+        ctx.stroke(); 
+    }
 }
 
 function drawGround(pass) {
