@@ -11,7 +11,10 @@ class Block {
         this.friction = .8;
     }
 
-    render() {
+    render(pass) {
+        if (pass === 1) {
+            return;
+        }
         ctx.save();
         ctx.translate(this.x,this.y);
         let sp = 1;

@@ -19,35 +19,38 @@ class Player {
         this.elvesInRange = [];
     }
 
-    render() {
-        if (this.dir == RIGHT) {
-            if (this.attack) {
-                this.atkFr++;
-                if (this.atkFr >= 29) {
-                    this.attack = false;
-                    this.atkFr = 0;
+    render(pass) {
+        if (pass === 0) {
+            if (this.dir == RIGHT) {
+                if (this.attack) {
+                    this.atkFr++;
+                    if (this.atkFr >= 29) {
+                        this.attack = false;
+                        this.atkFr = 0;
+                    }
+                }
+            } else if (this.dir == LEFT) {
+                if (this.attack) {
+                    this.atkFr++;
+                    if (this.atkFr >= 29) {
+                        this.attack = false;
+                        this.atkFr = 0;
+                    }
+                }
+            } else {
+                if (this.attack) {
+                    this.atkFr++;
+                    if (this.atkFr >= 29) {
+                        this.attack = false;
+                        this.atkFr = 0;
+                    }
                 }
             }
-        } else if (this.dir == LEFT) {
-            if (this.attack) {
-                this.atkFr++;
-                if (this.atkFr >= 29) {
-                    this.attack = false;
-                    this.atkFr = 0;
-                }
-            }
-        } else {
-            if (this.attack) {
-                this.atkFr++;
-                if (this.atkFr >= 29) {
-                    this.attack = false;
-                    this.atkFr = 0;
-                }
-            }
-        }
         drawPlayer(this.x, this.y, this.vx, this.vy, this.w, this.h, this.atkFr, this.fr, this.dir, this.attack);
-        if (this.elvesInRange.length > 0) {
-            drawOptions(this.x + this.w/2, this.y, ["(u) You are now a Reindeer", "(i) Help me fix this toy", "(o) Boo!", "(p) Push"]);
+        } else {
+            if (this.elvesInRange.length > 0) {
+                drawOptions(this.x + this.w/2, this.y, ["(u) You are now a Reindeer", "(i) Help me fix this toy", "(o) Boo!", "(p) Push"]);
+            }
         }
     }
 
