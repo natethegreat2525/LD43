@@ -2,7 +2,9 @@
 let currentLevel = 1;
 class LevelManager {
     static reset(event) {
-        world = new World(level[currentLevel - 1]);
+        setTimeout(() => {
+            world = new World(level[currentLevel - 1]);
+        }, 100);
         event.preventDefault();
     }
   
