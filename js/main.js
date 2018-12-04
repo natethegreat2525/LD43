@@ -98,10 +98,10 @@ document.addEventListener("click", (evt) => {
   }
   if (onSelect) {
     setTimeout(() => {
-      let lvl = window.prompt("What level? (1-11)")
+      let lvl = window.prompt("What level? (1-12)")
       try {
         let v = parseInt(lvl);
-        if (v >= 1 && v <= 11) {
+        if (v >= 1 && v <= 12) {
           currentLevel = v;
           showMenu = false;
           window.dispatchEvent(resetWorldEvent);
