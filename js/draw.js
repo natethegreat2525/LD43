@@ -1,4 +1,4 @@
-function drawPlayer(x, y, vx, vy, w, h, atkFr, fr, dir, attack) {
+function drawPlayer(x, y, vx, vy, w, h, atkFr, fr, dir, attack, alive) {
     //Feet
     let lFoot = null;
     let rFoot = null;
@@ -44,6 +44,11 @@ function drawPlayer(x, y, vx, vy, w, h, atkFr, fr, dir, attack) {
     ctx.fillStyle = "#ffffff";
     ctx.fillRect(x, y+39, 20, 3);  //horizontal sash
 
+    if (!alive) {
+        ctx.fillStyle = "#B70000";
+        ctx.fillRect(x+(w-2), y, 3, h);  
+    }
+
     //Face
     ctx.fillStyle = "#FEE3B7";
     ctx.fillRect(x+4, y+8, 13, 13); //face
@@ -71,44 +76,79 @@ function drawPlayer(x, y, vx, vy, w, h, atkFr, fr, dir, attack) {
     ctx.fillStyle = "#ffffff";
     ctx.fillRect(x+3, y+7, 14, 2);  //hat stripe
 
-    if (dir == LEFT) {
-        //Eyes
-        ctx.fillStyle = "#000000";
-        ctx.fillRect(x+5, y+11, 3, 3); //eye
+    if (alive) {
+        if (dir == LEFT) {
+            //Eyes
+            ctx.fillStyle = "#000000";
+            ctx.fillRect(x+5, y+11, 3, 3); //eye
 
-        //Beard Position
-        ctx.beginPath();
-        ctx.moveTo(x+7, y+30);
-        ctx.lineTo(x+4, y+18);
-        ctx.lineTo(x+10, y+18);
-        ctx.closePath(); //beard shape
+            //Beard Position
+            ctx.beginPath();
+            ctx.moveTo(x+7, y+30);
+            ctx.lineTo(x+4, y+18);
+            ctx.lineTo(x+10, y+18);
+            ctx.closePath(); //beard shape
+        }
+
+        if (dir == RIGHT) {
+            //Eyes
+            ctx.fillStyle = "#000000";
+            ctx.fillRect(x+13, y+11, 3, 3); //eye
+
+            //Beard Position
+            ctx.beginPath();
+            ctx.moveTo(x+15, y+30);
+            ctx.lineTo(x+11, y+18);
+            ctx.lineTo(x+17, y+18);
+            ctx.closePath(); //beard shape
+        }
+        
+        if (dir == FRONT) {
+            //Eyes
+            ctx.fillStyle = "#000000";
+            ctx.fillRect(x+5, y+12, 3, 3); //left eye
+            ctx.fillRect(x+13, y+12, 3, 3); //right eye
+
+            //Beard Position
+            ctx.beginPath();
+            ctx.moveTo(x+11, y+30);
+            ctx.lineTo(x+5, y+18);
+            ctx.lineTo(x+16, y+18);
+            ctx.closePath(); //beard shape
+        }
     }
-
-    if (dir == RIGHT) {
-        //Eyes
-        ctx.fillStyle = "#000000";
-        ctx.fillRect(x+13, y+11, 3, 3); //eye
-
-        //Beard Position
+    else {
         ctx.beginPath();
-        ctx.moveTo(x+15, y+30);
-        ctx.lineTo(x+11, y+18);
-        ctx.lineTo(x+17, y+18);
-        ctx.closePath(); //beard shape
-    }
-
-    if (dir == FRONT) {
-        //Eyes
-        ctx.fillStyle = "#000000";
-        ctx.fillRect(x+5, y+12, 3, 3); //left eye
-        ctx.fillRect(x+13, y+12, 3, 3); //right eye
-
-        //Beard Position
+        ctx.moveTo(x+(w/2 - 5), y+12);
+        ctx.lineTo(x+(w/2 - 2), y+15);
+        ctx.closePath();
+        ctx.lineWidth = 1;
+        ctx.strokeStyle = '#000000';
+        ctx.stroke();
+        
         ctx.beginPath();
-        ctx.moveTo(x+11, y+30);
-        ctx.lineTo(x+5, y+18);
-        ctx.lineTo(x+16, y+18);
-        ctx.closePath(); //beard shape
+        ctx.moveTo(x+(w/2 - 2), y+12);
+        ctx.lineTo(x+(w/2 - 5), y+15);
+        ctx.closePath();
+        ctx.lineWidth = 1;
+        ctx.strokeStyle = '#000000';
+        ctx.stroke();
+        
+        ctx.beginPath();
+        ctx.moveTo(x+(w/2 + 1), y+12);
+        ctx.lineTo(x+(w/2 + 4), y+15);
+        ctx.closePath();
+        ctx.lineWidth = 1;
+        ctx.strokeStyle = '#000000';
+        ctx.stroke();
+        
+        ctx.beginPath();
+        ctx.moveTo(x+(w/2 + 4), y+12);
+        ctx.lineTo(x+(w/2 + 1), y+15);
+        ctx.closePath();
+        ctx.lineWidth = 1;
+        ctx.strokeStyle = '#000000';
+        ctx.stroke();
     }
 
     //Beard
