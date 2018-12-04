@@ -222,41 +222,21 @@ level[10] ="                         \n" +
            "ddddddddddddddddddddddddd\n";
            
 level[11] ="                         \n" +
+           "      e  e e             \n" +
+           "    e             e      \n" +
+           "        e   e  e     e   \n" +
+           "     e        e  e       \n" +
+           "          e              \n" +
+           "                   e     \n" +
+           "                    e    \n" +
            "                         \n" +
            "                         \n" +
            "                         \n" +
-           "                         \n" +
-           "                         \n" +
-           "                         \n" +
-           "                         \n" +
-           "                         \n" +
-           "                         \n" +
-           "                         \n" +
+           " @                     k \n" +
+           "ggggssssssssssssssssssggg\n" +
            "ddddddddddddddddddddddddd\n" +
-           "ddddddddddddddddddddddddd\n" +
-           "ddddddddddddddddddddddddd\n" +
-           "ddddddddddddddddddddddddd\n" +
-           "ddddddddddddddddddddddddd\n" +
-           "ddddddddddddddddddddddddd\n" +
-           "ddddddddddddddddddddddddd\n" +
-           "ddddddddddddddddddddddddd\n";
-           
-level[12] ="                         \n" +
-           "                         \n" +
-           "                         \n" +
-           "                         \n" +
-           "                         \n" +
-           "                         \n" +
-           "                         \n" +
-           "                         \n" +
-           "                         \n" +
-           "                         \n" +
-           "                         \n" +
-           "ddddddddddddddddddddddddd\n" +
-           "ddddddddddddddddddddddddd\n" +
-           "ddddddddddddddddddddddddd\n" +
-           "ddddddddddddddddddddddddd\n" +
-           "ddddddddddddddddddddddddd\n" +
-           "ddddddddddddddddddddddddd\n" +
-           "ddddddddddddddddddddddddd\n" +
+           "dgdgdgggdgdgdgdgdgdgdgddg\n" +
+           "dgdgdgdgdgdgdgdgdgdgdggdg\n" +
+           "ddgddgdgdgdgdgdgdgdgdgdgg\n" +
+           "ddgddgggdgggddgdgddgdgddg\n" +
            "ddddddddddddddddddddddddd\n";
