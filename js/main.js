@@ -87,6 +87,7 @@ document.addEventListener("click", (evt) => {
     if (onMenu) {
       showMenu = true;
     }
+    return;
   }
   let onPlay = (mouseY > 100 && mouseY < 200 && mouseX > 200 && mouseX < 600);
   let onSelect = (mouseY > 300 && mouseY < 400);
